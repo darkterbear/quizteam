@@ -1,0 +1,23 @@
+{
+    "name": "quizteam-backend",
+    "version": "0.1.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "pm2 start server.js --name quizteam-backend",
+        "stop": "pm2 delete quizteam-backend"
+    },
+    "author": "Terrance Li, Andrew Liu, and Neal Ma",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "connect-mongo": "^2.0.1",
+        "express": "^4.16.2",
+        "mongodb": "^3.0.1",
+        "mongoose": "^4.13.9",
+        "nodemon": "^1.14.9",
+        "request": "^2.83.0",
+        "cors": "^2.8.4",
+        "request-promise": "^4.2.2"
+    }
+}
