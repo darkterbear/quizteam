@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/quizteamDB', { useMongoClient: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', () => {
-    print("MongoDB is connected!");
+    console.log("MongoDB is connected!");
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,4 +20,4 @@ app.use(bodyParser.json());
 routes(app);
 
 app.listen(port);
-print("Quizteam API is live!");
+console.log("Quizteam API is live!");

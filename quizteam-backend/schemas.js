@@ -6,3 +6,5 @@ var RoomSchema = new Schema({
   adminSecret: String,
   quizletSetID: Number
 });
+
+module.exports = mongoose.model('Rooms', RoomSchema);
