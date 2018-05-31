@@ -1,5 +1,6 @@
 //dependencies
 const request = require("request-promise");
+const hat = require("hat");
 const models = require("./schemas.js");
 const mongoose = require("mongoose");
 
@@ -10,18 +11,11 @@ const Rooms = mongoose.model('Rooms');
 */
 exports.createRoom = (req, res) => {
   
-  if (req.body.quizlet_set_id == null) {
-    res.json({resp_code: 1, resp_msg: "null parameters"});
-    return;
-  }
-
   // generate random number
   var roomCode = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
-  var adminSecret;
-  // generate random number
- 
   
-  // while check the other roomcodes to make sure its not taken
+  var adminSecret = hat();
+ 
   
   var newRoom = new Rooms({
     roomCode: roomCode,
@@ -29,7 +23,7 @@ exports.createRoom = (req, res) => {
     quizletSetID: req.body.quizlet_set_id
   });
   
-  newRoom.save().then(() => {
+  newRoom.save().then((err) => {
     res.json({
       resp_code: 100,
       room_code: roomCode,
@@ -40,14 +34,7 @@ exports.createRoom = (req, res) => {
 
 // deletes the room
 exports.destroyRoom = (req, res) => {
-  if (req.body.adminSecret == null || req.body.roomCode == null) {
-    res.json({resp_code: 1, resp_msg: "null parameters"});
-    return;
-  }
   
-  Rooms.findOneAndDelete({adminSecret: req.body.adminSecret, roomCode: req.body.roomCode}, (removedRoom) => {
-    res.json({resp_code: 100});
-  });
 }
 
 

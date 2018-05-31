@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var RoomSchema = new Schema({
-  roomCode: Number,
+  roomCode: {
+    type: Number,
+    unique: true
+  },
   adminSecret: String,
   quizletSetID: Number
 });
