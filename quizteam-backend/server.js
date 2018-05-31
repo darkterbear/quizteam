@@ -7,6 +7,7 @@ const app = express();
 const port = 3000;
 
 // Connect MongoDB with Mongoose
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/quizteamDB', { useMongoClient: true });
 var db = mongoose.connection;
@@ -14,6 +15,7 @@ db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', () => {
     console.log("MongoDB is connected!");
 });
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
