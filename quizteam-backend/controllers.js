@@ -9,6 +9,12 @@ const Rooms = mongoose.model('Rooms');
   Creates a new room w/ random room code 100000-999999, random adminSecret
 */
 exports.createRoom = (req, res) => {
+  
+  if (req.body.quizlet_set_id == null) {
+    res.json({resp_code: 1, resp_msg: "null parameters"});
+    return;
+  }
+  
   var roomCode;
   var adminSecret;
   // generate random number
@@ -32,6 +38,14 @@ exports.createRoom = (req, res) => {
 // deletes the room
 exports.destroyRoom = (req, res) => {
   
+  if (req.body.adminSecret == null || req.body.roomCode == null) {
+    res.json({resp_code: 1, resp_msg: "null parameters"});
+    return;
+  }
+  
+  Rooms.findOneAndDelete({adminSecret: req.body.adminSecret, roomCode: req.body.roomCode}, (removedRoom) => {
+    res.json({resp_code: 100});
+  });
 }
 
 
