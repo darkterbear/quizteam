@@ -9,15 +9,16 @@ const Rooms = mongoose.model('Rooms');
   Creates a new room w/ random room code 100000-999999, random adminSecret
 */
 exports.createRoom = (req, res) => {
-  
+
   if (req.body.quizlet_set_id == null) {
     res.json({resp_code: 1, resp_msg: "null parameters"});
     return;
   }
   
-  var roomCode;
-  var adminSecret;
   // generate random number
+  var roomCode = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+
+  var adminSecret;
   // while check the other roomcodes to make sure its not taken
   
   var newRoom = new Room({
