@@ -18,7 +18,7 @@ exports.createRoom = (req, res) => {
   
   // while check the other roomcodes to make sure its not taken
   
-  var newRoom = new Room({
+  var newRoom = new Rooms({
     roomCode: roomCode,
     adminSecret: adminSecret,
     quizletSetID: req.body.quizlet_set_id
