@@ -21,5 +21,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 routes(app);
 
-app.listen(port);
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+io.on('connection', (client) => {
+  console.log('client connected');
+});
+server.listen(port);
 console.log("Quizteam API is live!");
