@@ -34,7 +34,14 @@ exports.createRoom = (req, res) => {
 
 // deletes the room
 exports.destroyRoom = (req, res) => {
+  if (req.body.adminSecret == null || req.body.roomCode == null) {
+    res.json({resp_code: 1, resp_msg: "null parameters"});
+    return;
+  }
   
+  Rooms.findOneAndDelete({adminSecret: req.body.adminSecret, roomCode: req.body.roomCode}, (removedRoom) => {
+    res.json({resp_code: 100});
+  });
 }
 
 
