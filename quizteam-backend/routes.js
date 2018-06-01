@@ -13,14 +13,6 @@ module.exports = (app) => {
   // Destroy room
   app.route("/api/room/destroy/")
     .post(quizteamController.destroyRoom);
-
-  // Join room
-  app.post("/api/room/join/")
-    .post(quizteamController.joinRoom);
-  
-  // Leave room
-  app.post("/api/room/leave/")
-    .post(quizteamController.leaveRoom);
   
   // Start game
   app.post("/api/room/start/")

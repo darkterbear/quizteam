@@ -7,7 +7,11 @@ var RoomSchema = new Schema({
     unique: true
   },
   adminSecret: String,
-  quizletSetID: Number
+  quizletSetID: Number,
+  cards: [{
+    term: String,
+    definition: String
+  }]
 });
 
 module.exports = mongoose.model('Rooms', RoomSchema);
