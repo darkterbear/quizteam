@@ -25,6 +25,15 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 io.on('connection', (client) => {
   console.log('client connected');
+  client.on('')
+  client.on('disconnect', () => {
+    
+  });
+});
+app.use((req,res,next) => {
+    req.io = io;
+    console.log('io passed to routes;')
+    next();
 });
 server.listen(port);
 console.log("Quizteam API is live!");
