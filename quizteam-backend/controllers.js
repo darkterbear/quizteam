@@ -37,8 +37,8 @@ exports.createRoom = (req, res) => {
     var newRoom = new Rooms({
       roomCode: roomCode,
       adminSecret: adminSecret,
-      quizletSetID: req.body.quizletSetID
-      // ADD TERMS HERE
+      quizletSetID: req.body.quizletSetID,
+      cards: data.terms
     });
 
     newRoom.save().then((err) => {
@@ -55,8 +55,6 @@ exports.createRoom = (req, res) => {
       resp_msg: 'axios: fetch quizlet set data error: ' + error
     });
   });
-
-
 }
 
 // deletes the room
