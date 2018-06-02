@@ -21,6 +21,8 @@ exports.createRoom = (req, res) => {
   }
 
   axios.get(quizletBaseURL + req.body.quizletSetID + '?client_id=kjKPWqeGJf&whitespace=1').then((data) => {
+    data = data.data;
+    console.log(data);
     if ('error' in data || !('terms' in data)) {
       res.json({
         resp_code: 3,
