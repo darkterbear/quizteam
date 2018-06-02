@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const models = require('./schemas.js');
 const bodyParser = require('body-parser');
 const routes = require('./routes.js');
+const sockets = require('./sockets.js');
 const app = express();
 const port = 3000;
 
@@ -23,18 +24,9 @@ routes(app);
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-io.on('connection', (client) => {
-  console.log('client connected');
-  client.on('setRoom', (room) => {
-    client.join(room, () => {
-      
-    });
-  });
-  
-  client.on('disconnect', () => {
-    
-  });
-});
+
+sockets(io);
+
 app.use((req,res,next) => {
     req.io = io;
     next();
