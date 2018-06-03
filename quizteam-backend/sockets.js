@@ -27,13 +27,20 @@ exports.io = (io) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    function isNotCurrentlyShown(index, room) {
+        for (var i = 0; i < room.currentlyShownCards.length; i++) {
+            if (room.currentlyShownCards[i].index == index) return false;
+        }
+        return true;
+    }
+
     function getRandomShowCard(room) {
         room = rooms[room];
         var index;
         while (true) {
             index = getRandomInt(0, room.availableCards.length - 1);
 
-            if (room.currentlyPlayerCards[index]) {
+            if (room.currentlyPlayerCards[index] && isNotCurrentlyShown(index, room)) {
                 break;
             }
         }
