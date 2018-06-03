@@ -88,6 +88,8 @@ exports.io = (io) => {
         client.on('setRoom', (room) => {
             client.join(room, () => {
                 if (rooms[room]) {
+                    console.log(rooms)
+                    console.log(room)
                     rooms[room].players.push(client);
                     client.emit('setRoomResponse', 'success');
                     rooms[room].admin.emit('updateNumberOfPlayers', rooms[room].players.length);
