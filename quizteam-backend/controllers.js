@@ -107,7 +107,7 @@ exports.startGame = (req, res) => {
       return;
     }
     req.io.to(room.roomCode).emit('startGame');
-    startGame();
+    startGame(room.roomCode);
     res.json({
       resp_code: 100
     });
