@@ -6,7 +6,7 @@ import {
 } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import { createRoom } from '../api';
-import Socket, { emit } from '../sockets';
+import Socket from '../sockets';
 
 export default class CreateRoom extends Component {
     constructor(props) {
@@ -30,7 +30,7 @@ export default class CreateRoom extends Component {
                     setTitle: response.setTitle,
                     cards: response.cards
                 });
-                emit('roomAdmin', response.room_code, response.admin_secret)
+                Socket.emit('roomAdmin', response.room_code, response.admin_secret)
             }
         });
     }

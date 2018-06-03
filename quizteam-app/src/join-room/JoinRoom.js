@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Socket, { emit } from '../sockets';
+import Socket from '../sockets';
 
 import {
     AwesomeButton,
@@ -22,7 +22,7 @@ export default class JoinRoom extends Component {
     }
 
     joinRoom = () => {
-        emit('setRoom', this.state.roomCode)
+        Socket.emit('setRoom', this.state.roomCode)
     }
 
     handleChange = (e) => {

@@ -6,7 +6,7 @@ import {
 } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import Card from './Card';
-import Socket, { emit } from '../sockets';
+import Socket from '../sockets';
 
 export default class MasterScreen extends Component {
     constructor(props) {
