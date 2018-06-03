@@ -33,6 +33,7 @@ var createRoom = function(quizletUrl, callback) {
 var startGame = function(roomCode, adminSecret, numberOfPlayers, callback) {
     const url = baseUrl + 'api/room/start';
 
+    console.log(numberOfPlayers);
     var data = querystring.stringify({
         roomCode: roomCode,
         adminSecret: adminSecret,
