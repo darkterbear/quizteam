@@ -136,6 +136,7 @@ function startGame(roomCode) {
       usedCardIndices.push(indices.splice(randomIndex, 1)[0]);
       
       //emit player cards to players
+      console.log(randomCard);
       socket.emit('addCard', randomCard);
     }
   }
