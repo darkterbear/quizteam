@@ -18,7 +18,7 @@ export default class JoinRoom extends Component {
 
         Socket.on('setRoomResponse', function(msg) {
             if (msg == 'success') {
-                this.props.setStep(5, {});
+                this.props.setStep(5, {roomCode: this.state.roomCode});
             }
             //TODO: error message
         }.bind(this));
