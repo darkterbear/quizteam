@@ -41,12 +41,11 @@ export default class MasterStandby extends Component {
     render() {
         return (
             <div id="root">
-                <Sound
-                    url="../assets/1.mp3"
-                    playStatus={Sound.status.PLAYING}
-                    playFromPosition={1 /* in milliseconds */}
-                    loop={true}
-                />
+                <audio controls preload="auto">
+                    <source src="1.mp3" type="audio/mpeg" />
+                    This text displays if the audio tag isn't supported.
+                </audio>
+
                 <div className="container" style={{paddingTop: '32px'}}>
                     <h2><green>{this.props.roomCode}</green></h2>
                 </div>
