@@ -13,8 +13,26 @@ export default class MasterScreen extends Component {
         super(props);
 
         this.state = {
-            
+            cards: this.props.cards
         }
+
+        Socket.on('addCard', function(card) {
+            this.setState({
+                cards: this.state.cards.concat(card)
+            })
+        }.bind(this))
+
+        Socket.on('swapCards', function(oldcard, newcard) {
+            if (this.state.cards[0].index == oldcard) {
+                this.setState({
+                    cards: [newCard, this.state.cards[1]]
+                })
+            } else {
+                this.setState({
+                    cards: [this.state.cards[0], newCard]
+                })
+            }
+        }.bind(this));
     }
 
     render() {
@@ -25,13 +43,13 @@ export default class MasterScreen extends Component {
                 </div>
 
                 <div className="container" style={{ width: '90%', height: '35%'}}>
-                    <Card text={this.props.cards[0]}/>
-                    <Card text={this.props.cards[1]}/>
+                    <Card text={this.state.cards[0] != null && this.state.cards[0].definition}/>
+                    <Card text={this.state.cards[1] != null && this.state.cards[1].definition}/>
                 </div>
 
                 <div className="container" style={{ width: '90%', height: '35%', marginTop: '32px' }}>
-                    <Card text={this.props.cards[2]}/>
-                    <Card text={this.props.cards[3]}/>
+                    <Card text={this.state.cards[2] != null && this.state.cards[2].definition}/>
+                    <Card text={this.state.cards[3] != null && this.state.cards[3].definition}/>
                 </div>
             </div>
         );
