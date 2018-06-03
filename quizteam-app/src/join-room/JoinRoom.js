@@ -14,7 +14,7 @@ export default class JoinRoom extends Component {
                 <div>
                     <input class="blue-input" placeholder="room number"/>
                 </div>
-                <AwesomeButton type="secondary" style={{ marginTop: '32px'}}><buttontext>join room</buttontext></AwesomeButton>
+                <AwesomeButton type="primary" style={{ marginTop: '32px'}}><buttontext>join room</buttontext></AwesomeButton>
             </div>
         );
     }
