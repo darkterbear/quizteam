@@ -42,7 +42,7 @@ export default class JoinRoom extends Component {
                 <div>
                     <input class="blue-input" placeholder="room number" onChange={this.handleChange} value={this.state.roomCode}/>
                 </div>
-                <AwesomeButton type="primary" style={{ marginTop: '32px'}} action={this.joinRoom}><buttontext>join room</buttontext></AwesomeButton>
+                <AwesomeButton type="primary" style={{ marginTop: '32px', width: '40%'}} action={this.joinRoom}><buttontext>join room</buttontext></AwesomeButton>
             </div>
         );
     }
