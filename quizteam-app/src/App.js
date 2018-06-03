@@ -37,6 +37,10 @@ export default class App extends React.Component {
         });
     }
 
+    getRoomCode = () => {
+        return this.state.roomCode
+    }
+
     render() {
         var renderComponent;
 
@@ -60,7 +64,7 @@ export default class App extends React.Component {
                 renderComponent = <WaitingRoom setStep={this.setStep} />
                 break;
             case 6:
-                renderComponent = <PlayerScreen cards={[]} />
+                renderComponent = <PlayerScreen cards={[]} getRoomCode={this.getRoomCode}/>
                 break;
         }
 

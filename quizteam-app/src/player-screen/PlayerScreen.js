@@ -37,14 +37,23 @@ export default class PlayerScreen extends Component {
             }
         }.bind(this));
     }
+
+    handleClick1 = () => {
+        Socket.emit(this.props.getRoomCode(), this.state.cards[0].index)
+    }
+
+    handleClick2 = () => {
+        Socket.emit(this.props.getRoomCode(), this.state.cards[1].index)
+    }
+
     render() {
         return(
             <div className="container vcenter" style={{height: '80%', width: '80%', margin: '0 auto', position: 'relative'}}>
                 <h3><blue>your cards</blue></h3><br/>
-                <AwesomeButton type='primary' style={{ height: '70%', width: "40%", 'margin-right': "5%" }}>
+                <AwesomeButton action={this.handleClick1} type='primary' style={{ height: '70%', width: "40%", 'margin-right': "5%" }}>
                     <h5 style={{ color: '#ffffff', top: '35%', position: 'relative' }}>{this.state.cards[0] != null && this.state.cards[0].term}</h5>
                 </AwesomeButton>
-                <AwesomeButton type='primary' style={{ height: '70%', width: "40%" }}>
+                <AwesomeButton action={this.handleClick2} type='primary' style={{ height: '70%', width: "40%" }}>
                     <h5 style={{ color: '#ffffff', top: '35%', position: 'relative' }}>{this.state.cards[1] != null && this.state.cards[1].term}</h5>
                 </AwesomeButton>
             </div>
