@@ -116,7 +116,6 @@ exports.startGame = (req, res) => {
 
 function startGame(roomCode) {
   var room = rooms[roomCode];
-  console.log(room);
 
   //give players random cards
   var indices = []
@@ -136,28 +135,27 @@ function startGame(roomCode) {
       usedCardIndices.push(indices.splice(randomIndex, 1)[0]);
       
       //emit player cards to players
-      console.log(randomCard);
       socket.emit('addCard', randomCard);
     }
   }
 
-  /*
-  for (var index in usedCardIndices) {
-    room.currentlyPlayerCards[usedCardIndices[index]] = true;
-  }*/
+  usedCardIndices.forEach((index) => {
+    room.currentlyPlayerCards[index] = true;
+  });
 
-  //random shown cards
-  for (var i = 0; i < config.numberofShownCards; i++) {
+  //random shown cardsfor (var i = 0; i < config.numberofShownCards; i++) {
     //generate random card, no duplicates
     var randomIndex = getRandomInt(0, usedCardIndices.length - 1)
     var randomCard = room.availableCards[usedCardIndices[randomIndex]];
+    
+    console.log(randomCard);
     usedCardIndices.splice(randomIndex, 1);
 
     room.currentlyShownCards.push(randomCard);
   }
 
   //emit show cards to host
-  console.log(room.currentlyShownCards);
+  //console.log(room.currentlyShownCards);
   room.admin.emit('initialCards', room.currentlyShownCards);
 }
 
