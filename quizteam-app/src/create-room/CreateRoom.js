@@ -15,6 +15,10 @@ export default class CreateRoom extends Component {
         this.state = {
             quizleturl: ''
         }
+
+        Socket.on('roomAdminResponse', function(msg) {
+            console.log('roomAdminResponse' + msg)
+        })
     }
 
     createRoom = () => {
