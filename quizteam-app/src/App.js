@@ -41,7 +41,7 @@ export default class App extends React.Component {
 
         switch(this.state.step) {
             case 0:
-                renderComponent = <Splash/>;
+                renderComponent = <Splash setStep={this.setStep}/>;
                 break;
             case 1:
                 renderComponent = <CreateRoom/>;
