@@ -6,6 +6,7 @@ import WaitingRoom from './waiting-room/WaitingRoom';
 import MasterStandby from './master-standby/MasterStandby';
 import MasterScreen from './master-screen/MasterScreen';
 import PlayerScreen from './player-screen/PlayerScreen';
+import Sockets from './sockets';
 
 export default class App extends React.Component {
 
