@@ -40,8 +40,10 @@ var startGame = function(roomCode, adminSecret, numberOfPlayers, callback) {
     });
 
     axios.post(url, data).then((resp) => {
+        console.log(resp);
         callback(resp.data);
     }).catch((err) => {
+        console.log(err);
         callback({
             resp_code: 1
         });
