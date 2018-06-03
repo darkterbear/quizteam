@@ -44,7 +44,7 @@ export default class MasterStandby extends Component {
                 <Sound
                     url="../assets/1.mp3"
                     playStatus={Sound.status.PLAYING}
-                    playFromPosition={0 /* in milliseconds */}
+                    playFromPosition={1 /* in milliseconds */}
                     loop={true}
                 />
                 <div className="container" style={{paddingTop: '32px'}}>
