@@ -28,7 +28,7 @@ exports.io = (io) => {
     }
 
     function getRandomShowCard(room) {
-        let room = rooms[room];
+        room = rooms[room];
         var index;
         while (true) {
             index = getRandomInt(0, room.availableCards.length);
@@ -45,7 +45,7 @@ exports.io = (io) => {
     }
 
     function getRandomPlayerCard(room) {
-        let room = rooms[room];
+        room = rooms[room];
         var index;
         while (true) {
             index = getRandomInt(0, room.availableCards.length)
