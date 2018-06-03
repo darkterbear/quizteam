@@ -11,8 +11,8 @@ export default class Splash extends Component {
         return(
             <div className="container vcenter">
                 <h1><blue>quiz</blue><green>team</green></h1>
-                <AwesomeButton type="secondary" style={{ marginRight: '8px' }} onClick={this.props.setStep(1, {})}><buttontext>create room</buttontext></AwesomeButton>
-                <AwesomeButton type="primary" style={{ marginLeft: '8px' }} onClick={this.props.setStep(4, {})}><buttontext>join room</buttontext></AwesomeButton>
+                <AwesomeButton type="secondary" style={{ marginRight: '8px' }} action={() => this.props.setStep(1, {})}><buttontext>create room</buttontext></AwesomeButton>
+                <AwesomeButton type="primary" style={{ marginLeft: '8px' }} action={() => this.props.setStep(4, {})}><buttontext>join room</buttontext></AwesomeButton>
             </div>
         );
     }
