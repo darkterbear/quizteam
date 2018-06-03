@@ -2,10 +2,14 @@
 /*
 {
     admin: {Socket},
-    players: [Socket]
+    players: [Socket],
+    currentlyShownCards: [String] the id's
 }
 */
-rooms = [];
+var rooms = [];
+
+const mongoose = require('mongoose');
+const Rooms = mongoose.model('Rooms');
 
 module.exports = (io) => {
     io.on('connection', (client) => {
@@ -14,7 +18,9 @@ module.exports = (io) => {
         // called by the room admin to assert as admin
         // creates the room object and stores in the rooms array
         client.on('roomAdmin', (room, adminSecret) => {
+            Rooms.findOne({roomCode: room, adminSecret: adminSecret}, (room) => {
 
+            });
         });
 
         // called by player to join the room
