@@ -107,7 +107,7 @@ exports.io = (io) => {
                 if (rooms[room].currentlyShownCards[index].index == action) {
                     rooms[room].score += 10
                     updateScore(room, rooms[room].score)
-                    delete rooms.currentlyPlayerCards[action]
+                    delete rooms[room].currentlyPlayerCards[action]
                     var newPlayerCard = getRandomPlayerCard(room);
                     client.emit('swapCards', action, newPlayerCard);
                     var newShowCard = getRandomShowCard(room);
