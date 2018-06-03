@@ -48,7 +48,7 @@ exports.io = (io) => {
     }
 
     function updateScore(namespace, score) {
-        console.log('update score ' + score);
+        //console.log('update score ' + score);
         io.to(namespace).emit('updateScore', score);
     }
 
@@ -110,7 +110,7 @@ exports.io = (io) => {
          */
         client.on('submitAction', (room, action) => {
             for (var index4 = 0; index4 < rooms[room].currentlyShownCards.length; index4++) {
-                console.log(action + " " + rooms[room].currentlyShownCards[index4].index);
+                //console.log(action + " " + rooms[room].currentlyShownCards[index4].index);
                 if (rooms[room].currentlyShownCards[index4].index == action) {
                     rooms[room].score += 10
                     updateScore(room, rooms[room].score)

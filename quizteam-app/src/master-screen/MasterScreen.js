@@ -39,11 +39,12 @@ export default class MasterScreen extends Component {
             })
         }.bind(this));
 
-        Socket.on('updateScore', function(score) {
+        Socket.on('updateScore', function(newScore) {
+            console.log('new score received ' + newScore);
             this.setState({
-                score: score
+                score: newScore
             });
-            console.log(score);
+            
         }.bind(this))
     }
 
