@@ -10,7 +10,8 @@ var RoomSchema = new Schema({
   quizletSetID: Number,
   cards: [{
     term: String,
-    definition: String
+    definition: String,
+    index: Number
   }]
 });
 

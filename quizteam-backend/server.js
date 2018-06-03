@@ -25,7 +25,7 @@ routes(app);
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-sockets(io);
+sockets.io(io);
 
 app.use((req,res,next) => {
     req.io = io;
