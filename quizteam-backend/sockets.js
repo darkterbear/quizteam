@@ -31,7 +31,7 @@ exports.io = (io) => {
         room = rooms[room];
         var index;
         while (true) {
-            index = getRandomInt(0, room.availableCards.length);
+            index = getRandomInt(0, room.availableCards.length - 1);
 
             if (room.currentlyPlayerCards[index]) {
                 break;
@@ -48,7 +48,7 @@ exports.io = (io) => {
         room = rooms[room];
         var index;
         while (true) {
-            index = getRandomInt(0, room.availableCards.length)
+            index = getRandomInt(0, room.availableCards.length - 1)
             if (room.currentlyPlayerCards[index] == undefined) {
                 room.currentlyPlayerCards[index] = true
                 break
