@@ -67,6 +67,7 @@ bigtext {
     color: #ffffff;
     font-weight: bold;
     font-family: 'Montserrat';
+    line-height: 40vh;
 }
 
 subtext {

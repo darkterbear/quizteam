@@ -13,7 +13,7 @@ export default class App extends React.Component {
             //<CreateRoom/>
             //<JoinRoom/>
             //<WaitingRoom/>
-            <MasterStandby roomCode='249722' numberOfPlayers='32' />
+            <MasterStandby roomCode='249722' numberOfPlayers='32' setTitle='apush presidents' />
         )
     }
 }
