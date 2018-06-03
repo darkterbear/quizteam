@@ -129,6 +129,7 @@ exports.io = (io) => {
                     return;
                 }
             }
+            
             //incorrect press
             rooms[room].score -= 10;
             updateScore(room, rooms[room].score);
