@@ -4,6 +4,8 @@ const request = require('request-promise');
 const hat = require('hat');
 const models = require('./schemas.js');
 const mongoose = require('mongoose');
+var rooms = require('./sockets').rooms;
+const config = require('./config')
 
 const Rooms = mongoose.model('Rooms');
 const quizletBaseURL = 'https://api.quizlet.com/2.0/sets/';
@@ -35,6 +37,10 @@ exports.createRoom = (req, res) => {
     var roomCode = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
 
     var adminSecret = hat();
+
+    for (var index in data.terms) {
+      data.terms[index].index = index;
+    }
 
     var newRoom = new Rooms({
       roomCode: roomCode,
@@ -100,8 +106,55 @@ exports.startGame = (req, res) => {
       return;
     }
     req.io.to(room.roomCode).emit('startGame');
+    startGame();
     res.json({
       resp_code: 100
     });
   });
+}
+
+function startGame(roomCode) {
+  let room = rooms[roomCode];
+
+  //give players random cards
+  let indices = []
+  let usedCardIndices = []
+  for (var index in room.availableCards) {
+    indices.push(index)
+  }
+
+  for (var index = 0; index < room.players.length; index++) {
+    var socket = room.players[index];
+
+    for (var i = 0; i<config.numberOfCardsPerPlayer;i++) {
+      //generate random card, no duplicates
+      var randomIndex = getRandomInt(0, indices.length)
+      var randomCard = room.availableCards[indices[randomIndex]];
+      usedCardIndices.push(indices.splice(randomIndex, 1)[0]);
+      
+      //emit player cards to players
+      socket.emit('addCard', randomCard);
+    }
+  }
+
+  for (var index in usedCardIndices) {
+    room.currentlyPlayerCards[usedCardIndices[index]] = true;
+  }
+
+  //random shown cards
+  for (var i = 0; i < config.numberofShownCards; i++) {
+    //generate random card, no duplicates
+    var randomIndex = getRandomInt(0, usedCardIndices.length)
+    var randomCard = room.availableCards[usedCardIndices[randomIndex]];
+    usedCardIndices.splice(randomIndex, 1);
+
+    room.currentlyShownCards.push(randomCard);
+  }
+
+  //emit show cards to host
+  room.admin.emit('initialCards', room.currentlyShownCards);
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
