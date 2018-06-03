@@ -82,7 +82,7 @@ exports.io = (io) => {
                     score: 0,
                     currentlyPlayerCards: {}
                 };
-
+                console.log(newRoom.availableCards);
                 rooms[newRoom.roomCode] = newRoom;
                 client.emit('roomAdminResponse', 'success');
             });
