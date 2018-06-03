@@ -24,11 +24,11 @@ export default class PlayerScreen extends Component {
         Socket.on('swapCards', function(oldcard, newcard) {
             if (this.state.cards[0].index == oldcard) {
                 this.setState({
-                    cards: [newCard, this.state.cards[1]]
+                    cards: [newcard, this.state.cards[1]]
                 })
             } else {
                 this.setState({
-                    cards: [this.state.cards[0], newCard]
+                    cards: [this.state.cards[0], newcard]
                 })
             }
         }.bind(this));

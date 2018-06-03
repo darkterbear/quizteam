@@ -23,15 +23,16 @@ export default class MasterScreen extends Component {
         }.bind(this))
 
         Socket.on('swapCards', function(oldcard, newcard) {
-            if (this.state.cards[0].index == oldcard) {
-                this.setState({
-                    cards: [newCard, this.state.cards[1]]
-                })
-            } else {
-                this.setState({
-                    cards: [this.state.cards[0], newCard]
-                })
+            let newCards = this.state.cards.slice();
+            for (var index in newCards) {
+                if (newCards[index].index == oldcard) {
+                    newCards[index] = newcard;
+                    break;
+                }
             }
+            this.setState({
+                cards: newCards
+            })
         }.bind(this));
     }
 
