@@ -107,6 +107,7 @@ exports.startGame = (req, res) => {
       return;
     }
     req.io.to(room.roomCode).emit('startGame');
+    console.log("IS start game being called?")
     startGame(room.roomCode);
     res.json({
       resp_code: 100
@@ -115,6 +116,7 @@ exports.startGame = (req, res) => {
 }
 
 function startGame(roomCode) {
+  console.log("start game called");
   let room = rooms[roomCode];
 
   //give players random cards
@@ -153,6 +155,7 @@ function startGame(roomCode) {
   }
 
   //emit show cards to host
+  console.log(room.currentlyShownCards);
   room.admin.emit('initialCards', room.currentlyShownCards);
 }
 
