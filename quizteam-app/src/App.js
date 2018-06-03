@@ -12,8 +12,8 @@ export default class App extends React.Component {
             //<Splash/>
             //<CreateRoom/>
             //<JoinRoom/>
-            //<WaitingRoom/>
-            <MasterStandby roomCode='249722' numberOfPlayers='32' />
+            <WaitingRoom/>
+            //<MasterStandby roomCode='249722' numberOfPlayers='32' />
         )
     }
 }
