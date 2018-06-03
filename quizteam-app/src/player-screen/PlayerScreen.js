@@ -39,11 +39,11 @@ export default class PlayerScreen extends Component {
     }
 
     handleClick1 = () => {
-        Socket.emit(this.props.getRoomCode(), this.state.cards[0].index)
+        Socket.emit('submitAction' ,this.props.getRoomCode(), this.state.cards[0].index)
     }
 
     handleClick2 = () => {
-        Socket.emit(this.props.getRoomCode(), this.state.cards[1].index)
+        Socket.emit('submitAction', this.props.getRoomCode(), this.state.cards[1].index)
     }
 
     render() {
