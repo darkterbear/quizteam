@@ -15,6 +15,6 @@ module.exports = (app) => {
     .post(quizteamController.destroyRoom);
   
   // Start game
-  app.post("/api/room/start/")
+  app.route("/api/room/start/")
     .post(quizteamController.startGame);
 }
