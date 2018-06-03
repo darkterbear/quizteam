@@ -10,7 +10,9 @@ export default class WaitingRoom extends Component {
 
     constructor(props) {
         super();
-        this.state.waitingText = 'Waiting...';
+        this.state = {
+            waitingText: 'Waiting...'
+        };
 
         this.changeText = this.changeText.bind(this);
 
