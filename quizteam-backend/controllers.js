@@ -124,8 +124,6 @@ function startGame(roomCode) {
   for (var i = 0; i < room.availableCards.length; i++) {
     indices.push(i);
   }
-  
-  console.log(indices);
 
   for (var index = 0; index < room.players.length; index++) {
     var socket = room.players[index];
@@ -138,7 +136,7 @@ function startGame(roomCode) {
       usedCardIndices.push(indices.splice(randomIndex, 1)[0]);
       
       //emit player cards to players
-      //console.log(randomCard);
+      console.log(randomCard);
       socket.emit('addCard', randomCard);
     }
   }
