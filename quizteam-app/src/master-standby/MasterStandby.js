@@ -21,6 +21,10 @@ export default class MasterStandby extends Component {
                 numberOfPlayers: players
             })
         }.bind(this));
+
+        Socket.on('startGame', function () {
+            this.props.setStep(3, {});
+        }.bind(this));
     }
 
     startGame = () => {

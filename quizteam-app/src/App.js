@@ -32,7 +32,6 @@ export default class App extends React.Component {
     }
 
     setStep(stepNum, updateStateObject) {
-        console.log('hi')
         this.setState(updateStateObject, () => {
             this.setState({step: stepNum});
         });
@@ -52,7 +51,7 @@ export default class App extends React.Component {
                 renderComponent = <MasterStandby adminSecret={this.state.adminSecret} roomCode={this.state.roomCode} numberOfPlayers={this.state.numberOfPlayers} setTitle={this.state.setTitle} setStep={this.setStep} />;
                 break;
             case 3:
-                renderComponent = <MasterScreen cards={this.state.cards} />;
+                renderComponent = <MasterScreen cards={[]} />;
                 break;
             case 4:
                 renderComponent = <JoinRoom setStep={this.setStep} />
@@ -61,7 +60,7 @@ export default class App extends React.Component {
                 renderComponent = <WaitingRoom setStep={this.setStep} />
                 break;
             case 6:
-                renderComponent = <PlayerScreen cards={this.state.cards} />
+                renderComponent = <PlayerScreen cards={[]} />
                 break;
         }
 

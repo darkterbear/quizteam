@@ -5,8 +5,34 @@ import {
     AwesomeButtonShare,
 } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
+import Socket from '../sockets'
 
 export default class PlayerScreen extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            cards: this.props.cards
+        }
+
+        Socket.on('addCard', function(card) {
+            this.setState({
+                cards: this.state.cards.concat(card)
+            })
+        }.bind(this))
+
+        Socket.on('swapCards', function(oldcard, newcard) {
+            if (this.state.cards[0].index == oldcard) {
+                this.setState({
+                    cards: [newcard, this.state.cards[1]]
+                })
+            } else {
+                this.setState({
+                    cards: [this.state.cards[0], newcard]
+                })
+            }
+        }.bind(this));
+    }
     render() {
         return(
             <div className="container vcenter" style={{height: '80%', width: '80%', margin: '0 auto', position: 'relative'}}>
