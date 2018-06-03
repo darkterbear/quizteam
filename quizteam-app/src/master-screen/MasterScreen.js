@@ -32,8 +32,10 @@ export default class MasterScreen extends Component {
                     break;
                 }
             }
+            var newScore = this.state.score + 10;
             this.setState({
-                cards: newCards
+                cards: newCards,
+                score: newScore
             })
         }.bind(this));
 
@@ -48,8 +50,8 @@ export default class MasterScreen extends Component {
     render() {
         return (
             <div id="root">
-                <div className="container" style={{ width: '90%', height: '35%', paddingTop: '32px' }}>
-                    <h2><green>{this.state.score}</green></h2>
+                <div className="container" style={{ width: '90%', height: '30%'}}>
+                    <h2><green>score: {this.state.score}</green></h2>
                 </div>
 
                 <div className="container" style={{ width: '90%', height: '35%'}}>
