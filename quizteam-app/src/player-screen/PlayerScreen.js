@@ -17,8 +17,11 @@ export default class PlayerScreen extends Component {
 
         Socket.on('addCard', function(card) {
             console.log(card);
+
+            var newCards = this.state.cards.slice();
+            newCards.push(card);
             this.setState({
-                cards: this.state.cards.concat(card)
+                cards: newCards
             })
         }.bind(this))
 
