@@ -113,7 +113,6 @@ exports.io = (io) => {
                     rooms[room].currentlyShownCards.forEach((card) => {
                         if (card.index == action) {
                             rooms[room].currentlyShownCards[index4] = newShowCard
-                            break;
                         }
                     });
                     rooms[room].admin.emit('swapCards', action, newShowCard);
