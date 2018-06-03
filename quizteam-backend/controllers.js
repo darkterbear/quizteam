@@ -107,7 +107,7 @@ exports.startGame = (req, res) => {
       return;
     }
 
-    if (req.body.numberOfPlayers / room.cards.length < 2) {
+    if (room.cards.length / req.body.numberOfPlayers < 2) {
       res.json({
         resp_code: 3,
         resp_msg: 'too many players'
