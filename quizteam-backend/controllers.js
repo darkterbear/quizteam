@@ -87,7 +87,7 @@ exports.destroyRoom = (req, res) => {
 }
 
 exports.startGame = (req, res) => {
-  if (req.body.adminSecret == null || req.body.roomCode == null) {
+  if (req.body.adminSecret == null || req.body.roomCode == null || req.body.numberOfPlayers) {
     res.json({
       resp_code: 1,
       resp_msg: 'null parameters'
@@ -103,6 +103,14 @@ exports.startGame = (req, res) => {
       res.json({
         resp_code: 2,
         resp_msg: 'room not found or admin secret incorrect'
+      });
+      return;
+    }
+
+    if (req.body.numberOfPlayers / room.cards.length < 2) {
+      res.json({
+        resp_code: 3,
+        resp_msg: 'too many players'
       });
       return;
     }

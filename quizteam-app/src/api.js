@@ -30,12 +30,13 @@ var createRoom = function(quizletUrl, callback) {
     });   
 }
 
-var startGame = function(roomCode, adminSecret, callback) {
+var startGame = function(roomCode, adminSecret, numberOfPlayers, callback) {
     const url = baseUrl + 'api/room/start';
 
     var data = querystring.stringify({
         roomCode: roomCode,
-        adminSecret: adminSecret
+        adminSecret: adminSecret,
+        numberOfPlayers: numberOfPlayers
     });
 
     axios.post(url, data).then((resp) => {
