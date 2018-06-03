@@ -143,7 +143,8 @@ function startGame(roomCode) {
     room.currentlyPlayerCards[index] = true;
   });
 
-  //random shown cardsfor (var i = 0; i < config.numberofShownCards; i++) {
+  //random shown cards
+  for (var i = 0; i < config.numberofShownCards; i++) {
     //generate random card, no duplicates
     var randomIndex = getRandomInt(0, usedCardIndices.length - 1)
     var randomCard = room.availableCards[usedCardIndices[randomIndex]];
@@ -152,7 +153,7 @@ function startGame(roomCode) {
     usedCardIndices.splice(randomIndex, 1);
 
     room.currentlyShownCards.push(randomCard);
-  
+  }
 
   //emit show cards to host
   //console.log(room.currentlyShownCards);
