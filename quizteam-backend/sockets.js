@@ -101,6 +101,8 @@ exports.io = (io) => {
          * @param {Number} action - index of the Card pressed
          */
         client.on('submitAction', (room, action) => {
+            console.log(room)
+            console.log(action)
             for (var index = 0; index < rooms[room].currentlyShownCards.length; index++) {
                 if (rooms[room].currentlyShownCards[index].index == action) {
                     rooms[room].score += 10
