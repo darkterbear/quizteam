@@ -131,6 +131,7 @@ function startGame(roomCode) {
     for (var i = 0; i<config.numberOfCardsPerPlayer;i++) {
       //generate random card, no duplicates
       var randomIndex = getRandomInt(0, indices.length - 1)
+      console.log(indices[randomIndex]);
       var randomCard = room.availableCards[indices[randomIndex]];
       usedCardIndices.push(indices.splice(randomIndex, 1)[0]);
       
