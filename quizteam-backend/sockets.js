@@ -67,6 +67,9 @@ exports.io = (io) => {
             console.log('roomAdmin called')
             Rooms.findOne({roomCode: room, adminSecret: adminSecret}, (err, room) => {
                 if (err || room == null) {
+                    console.log(err);
+                    console.log(adminSecret);
+                    console.log(room)                    
                     client.emit('roomAdminResponse', 'unauthorized/room not found');
                     return;
                 }
