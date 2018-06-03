@@ -29,6 +29,10 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use((req,res,next) => {
+    req.io = io;
+    next();
+});
 
 routes(app);
 
@@ -37,9 +41,5 @@ var io = require('socket.io')(server);
 
 sockets.io(io);
 
-app.use((req,res,next) => {
-    req.io = io;
-    next();
-});
 server.listen(port);
 console.log("Quizteam API is live!");
