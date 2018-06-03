@@ -87,7 +87,7 @@ exports.destroyRoom = (req, res) => {
 }
 
 exports.startGame = (req, res) => {
-  if (req.body.adminSecret == null || req.body.roomCode == null || req.body.numberOfPlayers) {
+  if (req.body.adminSecret == null || req.body.roomCode == null) {
     res.json({
       resp_code: 1,
       resp_msg: 'null parameters'
@@ -107,6 +107,7 @@ exports.startGame = (req, res) => {
       return;
     }
 
+    /*
     if (room.cards.length / req.body.numberOfPlayers < 2) {
       res.json({
         resp_code: 3,
@@ -114,6 +115,8 @@ exports.startGame = (req, res) => {
       });
       return;
     }
+    */
+
     req.io.to(room.roomCode).emit('startGame');
     startGame(room.roomCode);
     res.json({
