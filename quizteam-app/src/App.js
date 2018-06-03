@@ -62,7 +62,6 @@ export default class App extends React.Component {
         }
 
         return (
-            {a}
             //<CreateRoom/>
             //<JoinRoom/>
             //<WaitingRoom/>
