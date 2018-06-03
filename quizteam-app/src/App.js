@@ -32,7 +32,6 @@ export default class App extends React.Component {
     }
 
     setStep(stepNum, updateStateObject) {
-        console.log('hi')
         this.setState(updateStateObject, () => {
             this.setState({step: stepNum});
         });
