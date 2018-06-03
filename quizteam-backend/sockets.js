@@ -48,7 +48,7 @@ exports.io = (io) => {
     }
 
     function updateScore(namespace, score) {
-        console.log('update score emitted to ' + namespace);
+        console.log('update score ' + score);
         io.to(namespace).emit('updateScore', score);
     }
 
