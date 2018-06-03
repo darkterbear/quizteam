@@ -108,7 +108,7 @@ exports.io = (io) => {
                     delete rooms[room].currentlyPlayerCards[action]
                     var newPlayerCard = getRandomPlayerCard(room);
                     console.log(newPlayerCard)
-                    client.emit('swapCards', action, newPlayerCard);
+                    
                     var newShowCard = getRandomShowCard(room);
                     console.log(newShowCard)
                     rooms[room].currentlyShownCards.forEach((card) => {
@@ -116,7 +116,9 @@ exports.io = (io) => {
                             rooms[room].currentlyShownCards[index4] = newShowCard
                         }
                     });
+                    
                     rooms[room].admin.emit('swapCards', action, newShowCard);
+                    client.emit('swapCards', action, newPlayerCard);
                     return;
                 }
             }
