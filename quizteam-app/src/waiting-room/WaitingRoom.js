@@ -11,11 +11,9 @@ export default class WaitingRoom extends Component {
         return (
             <div className="container vcenter">
                 <h2><blue>Waiting...  </blue></h2>
-                <div>
-                    <input class="blue-input" placeholder="room number"/>
+                <h4><blue>be patient :)</blue></h4>
+                <h5><white>cards will show up on the board. when any of your cards match any of the displayed cards, click on it!<br/><br/> there may be terms you dont know... so be sure to communicate and work together... as a</white><blue>quizteam</blue></h5>
                 </div>
-                <AwesomeButton type="secondary" style={{ marginTop: '32px'}}><buttontext>join room</buttontext></AwesomeButton>
-            </div>
         );
     }
 }

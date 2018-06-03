@@ -10,7 +10,7 @@ export default class MasterStandby extends Component {
     render() {
         return (
             <div id="root">
-                <div className="container" style={{paddingTop: '32px'}}>
+                <div className="container" style={{paddingTopl: '32px'}}>
                     <h2><green>{this.props.roomCode}</green></h2>
                 </div>
 
