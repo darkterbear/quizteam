@@ -13,7 +13,8 @@ export default class MasterScreen extends Component {
         super(props);
 
         this.state = {
-            cards: this.props.cards
+            cards: this.props.cards,
+            score: score
         }
 
         Socket.on('initialCards', function(cards) {
@@ -37,6 +38,9 @@ export default class MasterScreen extends Component {
         }.bind(this));
 
         Socket.on('updateScore', function(score) {
+            this.setState({
+                score: score
+            });
             console.log(score)
         }.bind(this))
     }

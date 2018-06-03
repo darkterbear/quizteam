@@ -37,7 +37,7 @@ exports.io = (io) => {
                 break;
             }
         }
-        return room.currentlyPlayerCards[index];
+        return room.availableCards[index];
     }
 
     function updateScore(namespace, score) {
@@ -55,7 +55,7 @@ exports.io = (io) => {
             }
         }
 
-        return room.currentlyShownCards[index];
+        return room.availableCards[index];
     }
 
     io.on('connection', (client) => {
@@ -101,23 +101,24 @@ exports.io = (io) => {
          * @param {Number} action - index of the Card pressed
          */
         client.on('submitAction', (room, action) => {
-            console.log(room)
-            console.log(action)
-            for (var index = 0; index < rooms[room].currentlyShownCards.length; index++) {
-                if (rooms[room].currentlyShownCards[index].index == action) {
+            for (var index4 = 0; index4 < rooms[room].currentlyShownCards.length; index4++) {
+                if (rooms[room].currentlyShownCards[index4].index == action) {
                     rooms[room].score += 10
                     updateScore(room, rooms[room].score)
-                    delete rooms.currentlyPlayerCards[action]
+                    delete rooms[room].currentlyPlayerCards[action]
                     var newPlayerCard = getRandomPlayerCard(room);
-                    client.emit('swapCards', action, newPlayerCard);
+                    console.log(newPlayerCard)
+                    
                     var newShowCard = getRandomShowCard(room);
-                    for (var index in rooms[room].currentlyShownCards) {
-                        if (rooms[room].currentlyShownCards[index].index == action) {
-                            rooms[room].currentlyShownCards[index] = newShowCard
-                            break;
+                    console.log(newShowCard)
+                    rooms[room].currentlyShownCards.forEach((card) => {
+                        if (card.index == action) {
+                            rooms[room].currentlyShownCards[index4] = newShowCard
                         }
-                    }
+                    });
+                    
                     rooms[room].admin.emit('swapCards', action, newShowCard);
+                    client.emit('swapCards', action, newPlayerCard);
                     return;
                 }
             }
