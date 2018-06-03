@@ -119,12 +119,12 @@ function startGame(roomCode) {
   console.log(room);
 
   //give players random cards
-  let indices = []
-  let usedCardIndices = []
-  for (var card in room.availableCards) {
-    indices.push(card.index);
+  var indices = []
+  var usedCardIndices = []
+  for (var i = 0; i < room.availableCards.length; i++) {
+    indices.push(i);
   }
-
+  
   console.log(indices);
 
   for (var index = 0; index < room.players.length; index++) {
