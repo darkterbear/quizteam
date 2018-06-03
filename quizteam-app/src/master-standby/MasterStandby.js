@@ -41,10 +41,7 @@ export default class MasterStandby extends Component {
     render() {
         return (
             <div id="root">
-                <audio controls autoplay>
-                    <source src="../assets/1.mp3" type="audio/mpeg"/>
-                    Your browser does not support the audio element.
-                </audio> 
+                <audio autoplay="true" src="./1.mp3"/>
                 <div className="container" style={{paddingTop: '32px'}}>
                     <h2><green>{this.props.roomCode}</green></h2>
                 </div>
