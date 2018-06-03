@@ -60,6 +60,14 @@ h4 {
     font-family: 'Galindo';
 }
 
+h5 {
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    font-size: 4vh;
+    font-family: 'Galindo';
+}
+
 bigtext {
     margin: 0;
     padding: 0;
@@ -78,12 +86,6 @@ subtext {
     font-family: 'Montserrat';
 }
 
-h5 {
-    margin: 0;
-    padding: 0;
-    font-size: 4vh;
-    font-family: 'Galindo';
-}
 
 blue {
     color: #2F80ED;
