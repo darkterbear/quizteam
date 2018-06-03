@@ -148,11 +148,11 @@ function startGame(roomCode) {
     var randomIndex = getRandomInt(0, usedCardIndices.length - 1)
     var randomCard = room.availableCards[usedCardIndices[randomIndex]];
     
-    console.log(randomCard);
+    console.log(randomCard)
     usedCardIndices.splice(randomIndex, 1);
 
     room.currentlyShownCards.push(randomCard);
-  }
+  
 
   //emit show cards to host
   //console.log(room.currentlyShownCards);
