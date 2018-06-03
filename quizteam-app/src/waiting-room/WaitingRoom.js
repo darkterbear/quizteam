@@ -25,7 +25,7 @@ export default class WaitingRoom extends Component {
 
     updateWaitTick() {
         this.setState((prevState, props) => {
-            dots = prevState.dots + 1;
+            var dots = prevState.dots + 1;
             if (dots == 4) dots = 1;
             return {
                 dots: dots
