@@ -17,6 +17,7 @@
     "run": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "windows": "pm2 start node_modules/react-scripts/scripts/start.js --name quizteam-web"
   }
 }

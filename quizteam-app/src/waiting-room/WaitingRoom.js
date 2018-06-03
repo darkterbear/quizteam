@@ -16,7 +16,10 @@ export default class WaitingRoom extends Component {
     }
 
     componentDidMount() {
-        this.waitUpdates = setInterval(() => this.updateWaitTick, 0.3);
+        this.waitUpdates = setInterval(
+            () => this.updateWaitTick(),
+            1000
+          );
     }
   
     componentWillUnmount() {
@@ -24,11 +27,12 @@ export default class WaitingRoom extends Component {
     }
 
     updateWaitTick() {
-        this.setState((prevState, props) => {
-            var dots = prevState.dots + 1;
-            if (dots == 4) dots = 1;
+        this.setState(function(prevState) {
+            var dot = prevState.dots + 1;
+            if (dot == 4) dot = 1;
+
             return {
-                dots: dots
+                dots: dot
             }
         })
     }
@@ -45,12 +49,13 @@ export default class WaitingRoom extends Component {
     }
 
     render() {
+        console.log(this.state.dots)
         return (
-            <div className="container vcenter">
-                <h2><blue>Waiting {this.waitDots()}  </blue></h2>
+            <div className="container vcenter" style={{width: '60%', margin: '0 auto', position: 'relative'}}>
+                <h2><blue>Waiting{this.waitDots()}</blue></h2>
                 <h4><blue>be patient :)</blue></h4>
                 <h5>cards will show up on the board. when any of your cards match any of the displayed cards, click on it!<br/><br/> there may be terms you dont know... so be sure to communicate and work together... as a <blue>quizteam</blue></h5>
-                </div>
+            </div>
         );
     }
 }
