@@ -28,7 +28,8 @@ export default class CreateRoom extends Component {
                     roomCode: response.room_code,
                     numberOfPlayers: 0,
                     setTitle: response.setTitle,
-                    cards: response.cards
+                    cards: response.cards,
+                    adminSecret: response.admin_secret
                 });
                 Socket.emit('roomAdmin', response.room_code, response.admin_secret)
             }

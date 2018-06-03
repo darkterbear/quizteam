@@ -5,7 +5,8 @@ import {
     AwesomeButtonShare,
 } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
-import Socket from '../sockets'
+import Socket from '../sockets';
+import { startGame } from '../api';
 
 export default class MasterStandby extends Component {
     constructor(props) {
@@ -21,6 +22,15 @@ export default class MasterStandby extends Component {
             })
         }.bind(this));
     }
+
+    startGame = () => {
+        startGame(this.props.roomCode, this.props.adminSecret, (response) => {
+            if (response.resp_code == 100) {
+                this.props.setStep(3, {});
+            }
+        });
+    }
+
     render() {
         return (
             <div id="root">
@@ -35,7 +45,7 @@ export default class MasterStandby extends Component {
                 </div>
 
                 <div className="container" style={{bottom: '4vh', position: 'absolute'}}>
-                    <AwesomeButton type="secondary"><buttontext>start game</buttontext></AwesomeButton>
+                    <AwesomeButton type="secondary" action={this.startGame}><buttontext>start game</buttontext></AwesomeButton>
                 </div>
             </div>
         );

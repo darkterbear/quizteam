@@ -5,6 +5,7 @@ import {
     AwesomeButtonShare,
 } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
+import Socket from '../sockets';
 
 export default class WaitingRoom extends Component {
     constructor(props) {
@@ -13,6 +14,10 @@ export default class WaitingRoom extends Component {
             dots: 1
         }
         this.waitDots = this.waitDots.bind(this);
+
+        Socket.on('startGame', () => {
+            this.props.setStep(6, {});
+        }).bind(this);
     }
 
     componentDidMount() {

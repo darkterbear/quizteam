@@ -30,4 +30,21 @@ var createRoom = function(quizletUrl, callback) {
     });   
 }
 
-export { createRoom };
+var startGame = function(roomCode, adminSecret, callback) {
+    const url = baseUrl + 'api/room/start';
+
+    var data = querystring.stringify({
+        roomCode: roomCode,
+        adminSecret: adminSecret
+    });
+
+    axios.post(url, data).then((resp) => {
+        callback(resp.data);
+    }).catch((err) => {
+        callback({
+            resp_code: 1
+        });
+    });
+}
+
+export { createRoom, startGame };
