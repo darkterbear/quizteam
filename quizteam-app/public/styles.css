@@ -121,10 +121,10 @@ green {
     --button-secondary-color-light: #ffffff;
     --button-secondary-color-hover: rgb(26, 117, 64);
     --button-secondary-border: none;
-    --button-anchor-color: #0e4f88;
-    --button-anchor-color-dark: #072743;
+    --button-anchor-color: #ffffff;
+    --button-anchor-color-dark: #ffffff;
     --button-anchor-color-light: #ffffff;
-    --button-anchor-color-hover: #0d4a7f;
+    --button-anchor-color-hover: #ffffff;
     --button-anchor-border: none;
 
 }
