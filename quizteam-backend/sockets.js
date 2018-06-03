@@ -87,13 +87,14 @@ exports.io = (io) => {
         // called by player to join the room
         client.on('setRoom', (room) => {
             client.join(room, () => {
-                if (rooms[room]) {
+                if (room in rooms) {
                     console.log(rooms)
                     console.log(room)
                     rooms[room].players.push(client);
                     client.emit('setRoomResponse', 'success');
                     rooms[room].admin.emit('updateNumberOfPlayers', rooms[room].players.length);
                 } else {
+                    console.log('room doesnt exist!!!!!!')
                     client.emit('setRoomResponse', 'room doesnt exist');
                 }
             });
