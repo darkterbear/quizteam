@@ -24,8 +24,10 @@ export default class WaitingRoom extends Component {
         if (newText.includes('...')) newText = 'Waiting.';
         else if (newText.includes('..')) newText = 'Waiting...';
         else newText = 'Waiting..';
-        this.setState({waitingText: newText});
-        setInterval(this.changeText, 1000);
+        this.setState({waitingText: newText}, () => {
+           setInterval(this.changeText, 1000); 
+        });
+        
     }
 
 
