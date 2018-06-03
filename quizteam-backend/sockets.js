@@ -90,6 +90,7 @@ exports.io = (io) => {
                 if (rooms[room]) {
                     rooms[room].players.push(client);
                     client.emit('setRoomResponse', 'success');
+                    rooms[room].admin.emit('updateNumberOfPlayers', rooms[room].players.length);
                 } else {
                     client.emit('setRoomResponse', 'room doesnt exist');
                 }

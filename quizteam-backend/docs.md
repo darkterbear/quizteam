@@ -40,3 +40,7 @@ swapCards- (oldcard, newcard) {
     @oldcard- Number, index of card pressed
     @newcard- Card, replacement card
 }
+
+updateNumberOfPlayers- (players) {
+    @players- Number, number of players joined
+}
