@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes.js');
 const sockets = require('./sockets.js');
 const app = express();
+const cors = require('cors');
 const port = 3000;
 
 // Connect MongoDB with Mongoose
@@ -20,7 +21,7 @@ db.once('open', () => {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://138.197.207.244");
     res.header("Access-Control-Allow-Credentials", "true");
