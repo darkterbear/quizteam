@@ -103,8 +103,8 @@ exports.io = (io) => {
         client.on('submitAction', (room, action) => {
             for (var index4 = 0; index4 < rooms[room].currentlyShownCards.length; index4++) {
                 if (rooms[room].currentlyShownCards[index4].index == action) {
-                    // rooms[room].score += 10
-                    // updateScore(room, rooms[room].score)
+                    rooms[room].score += 10
+                    updateScore(room, rooms[room].score)
                     delete rooms[room].currentlyPlayerCards[action]
                     var newPlayerCard = getRandomPlayerCard(room);
                     console.log(newPlayerCard)
@@ -123,8 +123,8 @@ exports.io = (io) => {
                 }
             }
             //incorrect press
-            // rooms[room].score -= 10;
-            // updateScore(room, rooms[room].score);
+            rooms[room].score -= 10;
+            updateScore(room, rooms[room].score);
         });
 
         // called by the player leaving the room
