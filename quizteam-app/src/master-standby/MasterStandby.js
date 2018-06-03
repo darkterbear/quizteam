@@ -41,12 +41,10 @@ export default class MasterStandby extends Component {
     render() {
         return (
             <div id="root">
-                <Sound
-                    url="../assets/1.mp3"
-                    playStatus={Sound.status.PLAYING}
-                    playFromPosition={0 /* in milliseconds */}
-                    loop={true}
-                />
+                <audio controls autoplay>
+                    <source src="../assets/1.mp3" type="audio/mpeg"/>
+                    Your browser does not support the audio element.
+                </audio> 
                 <div className="container" style={{paddingTop: '32px'}}>
                     <h2><green>{this.props.roomCode}</green></h2>
                 </div>
