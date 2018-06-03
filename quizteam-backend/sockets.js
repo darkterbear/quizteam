@@ -73,6 +73,7 @@ exports.io = (io) => {
                     client.emit('roomAdminResponse', 'unauthorized/room not found');
                     return;
                 }
+                console.log(room.cards);
                 var newRoom = {
                     roomCode: room.roomCode,
                     admin: client,
@@ -82,7 +83,6 @@ exports.io = (io) => {
                     score: 0,
                     currentlyPlayerCards: {}
                 };
-                console.log(newRoom.availableCards);
                 rooms[newRoom.roomCode] = newRoom;
                 client.emit('roomAdminResponse', 'success');
             });
