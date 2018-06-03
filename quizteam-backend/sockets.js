@@ -64,6 +64,7 @@ exports.io = (io) => {
         // called by the room admin to assert as admin
         // creates the room object and stores in the rooms array
         client.on('roomAdmin', (room, adminSecret) => {
+            console.log('roomAdmin called')
             Rooms.findOne({roomCode: room, adminSecret: adminSecret}, (err, room) => {
                 if (err || room == null) {
                     client.emit('roomAdminResponse', 'unauthorized/room not found');
