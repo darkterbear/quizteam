@@ -19,7 +19,7 @@ export default class MasterStandby extends Component {
             this.setState({
                 numberOfPlayers: players
             })
-        })
+        }.bind(this));
     }
     render() {
         return (
