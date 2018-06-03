@@ -1,7 +1,6 @@
 html {
     margin: 0 !important;
     padding: 0 !important;
-    font-family: 'Galindo';
     background-color: #202020;
     width: 100%;
     height: 100%;
@@ -34,7 +33,8 @@ body {
 h1 {
     margin: 0;
     padding: 0;
-    font-size: 12vh;
+    font-size: 16vh;
+    font-family: 'Galindo';
 }
 
 blue {
@@ -43,4 +43,37 @@ blue {
 
 green {
     color: #27AE60;
+}
+
+.aws-btn {
+
+    --button-default-height: 51px;
+    --button-default-font-size: 14px;
+    --button-default-border-radius: 2px;
+    --button-horizontal-padding: 20px;
+    --button-raise-level: 4px;
+    --button-hover-pressure: 1;
+    --transform-speed: .175s;
+    --button-primary-color: #1e88e5;
+    --button-primary-color-dark: #1360a4;
+    --button-primary-color-light: #ffffff;
+    --button-primary-color-hover: #187bd1;
+    --button-primary-border: none;
+    --button-secondary-color: #f2f6f9;
+    --button-secondary-color-dark: #1360a4;
+    --button-secondary-color-light: #1e88e5;
+    --button-secondary-color-hover: #e1eaf1;
+    --button-secondary-border: 2px solid #1e88e5;
+    --button-anchor-color: #0e4f88;
+    --button-anchor-color-dark: #072743;
+    --button-anchor-color-light: #ffffff;
+    --button-anchor-color-hover: #0d4a7f;
+    --button-anchor-border: none;
+
+}
+
+buttontext {
+    font-family: 'Montserrat';
+    font-size: 3vh;
+    font-weight: bold;
 }
