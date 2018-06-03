@@ -31,10 +31,10 @@ exports.io = (io) => {
         let room = rooms[room];
         var index;
         while (true) {
-            index = getRandomInt(0, room.availableCards.length) {
-                if (room.currentlyPlayerCards[index]) {
-                    break;
-                }
+            index = getRandomInt(0, room.availableCards.length);
+
+            if (room.currentlyPlayerCards[index]) {
+                break;
             }
         }
         return room.currentlyPlayerCards[index];
