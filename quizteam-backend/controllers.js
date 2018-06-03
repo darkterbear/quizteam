@@ -140,9 +140,10 @@ function startGame(roomCode) {
     }
   }
 
+  /*
   for (var index in usedCardIndices) {
     room.currentlyPlayerCards[usedCardIndices[index]] = true;
-  }
+  }*/
 
   //random shown cards
   for (var i = 0; i < config.numberofShownCards; i++) {

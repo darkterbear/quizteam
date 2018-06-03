@@ -59,21 +59,15 @@ exports.io = (io) => {
     }
 
     io.on('connection', (client) => {
-        console.log('client connected');
 
         // called by the room admin to assert as admin
         // creates the room object and stores in the rooms array
         client.on('roomAdmin', (room, adminSecret) => {
-            console.log('roomAdmin called')
             Rooms.findOne({roomCode: room, adminSecret: adminSecret}, (err, room) => {
-                if (err || room == null) {
-                    console.log(err);
-                    console.log(adminSecret);
-                    console.log(room)                    
+                if (err || room == null) {                
                     client.emit('roomAdminResponse', 'unauthorized/room not found');
                     return;
                 }
-                console.log(room.cards);
                 var newRoom = {
                     roomCode: room.roomCode,
                     admin: client,
