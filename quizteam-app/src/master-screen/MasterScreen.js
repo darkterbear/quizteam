@@ -20,6 +20,7 @@ export default class MasterScreen extends Component {
             this.setState({
                 cards: cards
             })
+            console.log(cards)
         }.bind(this))
 
         Socket.on('swapCards', function(oldcard, newcard) {
