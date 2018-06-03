@@ -16,7 +16,6 @@ export default class PlayerScreen extends Component {
         }
 
         Socket.on('addCard', function(card) {
-            console.log(card);
 
             var newCards = this.state.cards.slice();
             newCards.push(card);
@@ -26,6 +25,9 @@ export default class PlayerScreen extends Component {
         }.bind(this))
 
         Socket.on('swapCards', function(oldcard, newcard) {
+            console.log('swapcards')
+            console.log(oldcard)
+            console.log(newcard)
             if (this.state.cards[0].index == oldcard) {
                 this.setState({
                     cards: [newcard, this.state.cards[1]]
