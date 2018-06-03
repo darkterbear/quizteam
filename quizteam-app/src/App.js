@@ -16,7 +16,8 @@ export default class App extends React.Component {
             //<JoinRoom/>
             //<WaitingRoom/>
             //<MasterStandby roomCode='249722' numberOfPlayers='32' setTitle='apush presidents' />
-            <MasterScreen score={1000} cards={['meme 1', 'meme 2', 'meme 3', 'meme 4']}/>
+            //<MasterScreen score={1000} cards={['meme 1', 'meme 2', 'meme 3', 'meme 4']}/>
+            <PlayerScreen/>
         )
     }
 }
