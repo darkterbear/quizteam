@@ -30,7 +30,7 @@ export default class MasterStandby extends Component {
     startGame = () => {
         if (this.state.numberOfPlayers < 2) return false;
 
-        startGame(this.props.roomCode, this.props.adminSecret, this.state.numberOfPlayers, (response) => {
+        startGame(this.props.roomCode, this.props.adminSecret, (response) => {
             if (response.resp_code == 100) {
                 this.props.setStep(3, {});
             }
