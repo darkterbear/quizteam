@@ -37,8 +37,8 @@ exports.createRoom = (req, res) => {
 
     var adminSecret = hat();
 
-    for (var index in data.terms) {
-      data.terms[index].index = index;
+    for (var i = 0; i < data.terms.length; i++) {
+      data.terms[i].index = i;
     }
 
     var newRoom = new Rooms({
@@ -117,7 +117,7 @@ exports.startGame = (req, res) => {
 function startGame(roomCode) {
   var room = rooms[roomCode];
   console.log(room);
-  
+
   //give players random cards
   let indices = []
   let usedCardIndices = []
