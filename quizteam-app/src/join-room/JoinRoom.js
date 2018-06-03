@@ -17,7 +17,9 @@ export default class JoinRoom extends Component {
         }
 
         Socket.on('setRoomResponse', function(msg) {
-            console.log(msg);
+            if (msg == 'success') {
+                this.prop.setStep(5, {});
+            }
         })
         //TODO: remove listeners when component will unmount
     }

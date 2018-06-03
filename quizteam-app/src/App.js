@@ -55,7 +55,7 @@ export default class App extends React.Component {
                 renderComponent = <MasterScreen cards={this.state.cards} />;
                 break;
             case 4:
-                renderComponent = <JoinRoom />
+                renderComponent = <JoinRoom setStep={this.setStep} />
                 break;
             case 5:
                 renderComponent = <WaitingRoom />
