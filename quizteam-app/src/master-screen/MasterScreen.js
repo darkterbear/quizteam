@@ -35,6 +35,10 @@ export default class MasterScreen extends Component {
                 cards: newCards
             })
         }.bind(this));
+
+        Socket.on('updateScore', function(score) {
+            console.log(score)
+        }.bind(this))
     }
 
     render() {
