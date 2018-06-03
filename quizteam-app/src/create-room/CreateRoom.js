@@ -17,7 +17,16 @@ export default class CreateRoom extends Component {
     }
 
     createRoom = () => {
-        createRoom(this.state.quizleturl);
+        createRoom(this.state.quizleturl, (response) => {
+            if (response.resp_code == 100) {
+                this.props.setStep(2, {
+                    roomCode: response.room_code,
+                    numberOfPlayers: 0,
+                    setTitle: response.setTitle,
+                    cards: response.cards
+                });
+            }
+        });
     }
 
     handleInput = (e) => {

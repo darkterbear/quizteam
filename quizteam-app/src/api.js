@@ -9,7 +9,7 @@ var createRoom = function(quizletUrl, callback) {
 
     if (!quizletURLRegex.test(quizletUrl)) {
         callback({
-            status: 1
+            resp_code: 1
         });
         return false;
     }
@@ -22,9 +22,12 @@ var createRoom = function(quizletUrl, callback) {
         quizletSetID: id
     });
     axios.post(url, data).then((resp) => {
-        console.log(resp);
-    });
-    
+        callback(resp.data);
+    }).catch((err) => {
+        callback({
+            resp_code: 1
+        })
+    });   
 }
 
 export { createRoom };

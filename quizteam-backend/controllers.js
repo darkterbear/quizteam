@@ -53,7 +53,9 @@ exports.createRoom = (req, res) => {
       res.json({
         resp_code: 100,
         room_code: roomCode,
-        admin_secret: adminSecret
+        admin_secret: adminSecret,
+        setTitle: data.title,
+        cards: data.terms
       });
     });
   }).catch((error) => {

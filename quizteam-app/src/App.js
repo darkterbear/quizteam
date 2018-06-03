@@ -45,7 +45,7 @@ export default class App extends React.Component {
                 renderComponent = <Splash setStep={this.setStep}/>;
                 break;
             case 1:
-                renderComponent = <CreateRoom/>;
+                renderComponent = <CreateRoom setStep={this.setStep}/>;
                 break;
             case 2:
                 renderComponent = <MasterStandby roomCode={this.state.roomCode} numberOfPlayers={this.state.numberOfPlayers} setTitle={this.state.setTitle} />;
