@@ -44,3 +44,7 @@ swapCards- (oldcard, newcard) {
 updateNumberOfPlayers- (players) {
     @players- Number, number of players joined
 }
+
+initialCards- (cards) {
+    @cards- [Card],initial shown cards
+}

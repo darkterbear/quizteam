@@ -16,9 +16,9 @@ export default class MasterScreen extends Component {
             cards: this.props.cards
         }
 
-        Socket.on('addCard', function(card) {
+        Socket.on('initialCards', function(cards) {
             this.setState({
-                cards: this.state.cards.concat(card)
+                cards: cards
             })
         }.bind(this))
 
