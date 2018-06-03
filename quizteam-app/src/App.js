@@ -4,6 +4,7 @@ import CreateRoom from './create-room/CreateRoom';
 import JoinRoom from './join-room/JoinRoom';
 import WaitingRoom from './waiting-room/WaitingRoom';
 import MasterStandby from './master-standby/MasterStandby';
+import PlayerScreen from './player-screen/PlayerScreen';
 
 export default class App extends React.Component {
 
