@@ -52,7 +52,7 @@ export default class WaitingRoom extends Component {
         console.log(this.state.dots)
         return (
             <div className="container vcenter" style={{width: '60%', margin: '0 auto', position: 'relative'}}>
-                <h2><blue>Waiting{this.waitDots()}</blue></h2>
+                <h2><blue><span style={{color: '#202020'}}>{this.waitDots()}</span>Waiting{this.waitDots()}</blue></h2>
                 <h4><blue>be patient :)</blue></h4>
                 <h5>cards will show up on the board. when any of your cards match any of the displayed cards, click on it!<br/><br/> there may be terms you dont know... so be sure to communicate and work together... as a <blue>quizteam</blue></h5>
             </div>
