@@ -12,10 +12,10 @@ export default class PlayerScreen extends Component {
             <div className="container vcenter" style={{height: '80%', width: '80%', margin: '0 auto', position: 'relative'}}>
                 <h3><blue>your cards</blue></h3><br/>
                 <AwesomeButton type='primary' style={{ height: '70%', width: "40%", 'margin-right': "5%" }}>
-                    <h3 style={{ color: '#ffffff', top: '35%', position: 'relative' }}>{this.props.cards[0]}</h3>
+                    <h5 style={{ color: '#ffffff', top: '35%', position: 'relative' }}>{this.props.cards[0]}</h5>
                 </AwesomeButton>
                 <AwesomeButton type='primary' style={{ height: '70%', width: "40%" }}>
-                    <h3 style={{ color: '#ffffff', top: '35%', position: 'relative' }}>{this.props.cards[1]}</h3>
+                    <h5 style={{ color: '#ffffff', top: '35%', position: 'relative' }}>{this.props.cards[1]}</h5>
                 </AwesomeButton>
             </div>
         )
