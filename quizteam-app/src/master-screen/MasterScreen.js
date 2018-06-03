@@ -13,8 +13,8 @@ export default class MasterScreen extends Component {
         super(props);
 
         this.state = {
-            cards: this.props.cards,
-            score: score
+            cards: this.props.cards
+            //score: score
         }
 
         Socket.on('initialCards', function(cards) {
