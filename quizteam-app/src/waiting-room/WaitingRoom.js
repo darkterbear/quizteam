@@ -15,7 +15,7 @@ export default class WaitingRoom extends Component {
         }
         this.waitDots = this.waitDots.bind(this);
 
-        Socket.on('startGame', () => {
+        Socket.on('startGame', function () {
             this.props.setStep(6, {});
         }).bind(this);
     }
