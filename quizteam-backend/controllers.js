@@ -107,6 +107,8 @@ exports.startGame = (req, res) => {
       return;
     }
 
+    console.log(room.cards.length);
+    console.log(req.body.numberOfPlayers);
     if (room.cards.length / req.body.numberOfPlayers < 2) {
       res.json({
         resp_code: 3,
