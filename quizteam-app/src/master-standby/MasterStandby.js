@@ -7,7 +7,7 @@ import {
 import 'react-awesome-button/dist/styles.css';
 import Socket from '../sockets';
 import { startGame } from '../api';
-import { Sound } from 'react-sound';
+var Sound = require('react-sound').default;
 
 export default class MasterStandby extends Component {
     constructor(props) {
