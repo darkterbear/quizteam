@@ -26,6 +26,8 @@ export default class App extends React.Component {
             5: waiting room
             6: player screen
         */
+
+        this.setStep = this.setStep.bind(this);
     }
 
     setStep(stepNum, updateStateObject) {
@@ -48,26 +50,19 @@ export default class App extends React.Component {
                 renderComponent = <MasterStandby roomCode={this.state.roomCode} numberOfPlayers={this.state.numberOfPlayers} setTitle={this.state.setTitle} />;
                 break;
             case 3:
-                renderComponent = <CreateRoom />;
+                renderComponent = <MasterScreen cards={this.state.cards} />;
                 break;
             case 4:
-
+                renderComponent = <JoinRoom />
                 break;
             case 5:
-
+                renderComponent = <WaitingRoom />
                 break;
             case 6:
-
+                renderComponent = <PlayerScreen cards={this.state.cards} />
                 break;
         }
 
-        return (
-            //<CreateRoom/>
-            //<JoinRoom/>
-            //<WaitingRoom/>
-            //<MasterStandby roomCode='249722' numberOfPlayers='32' setTitle='apush presidents' />
-            //<MasterScreen score={1000} cards={['meme 1', 'meme 2', 'meme 3', 'meme 4']}/>
-            <PlayerScreen cards={['meme 1', 'meme 2']}/>
-        )
+        return ({ renderComponent });
     }
 }
