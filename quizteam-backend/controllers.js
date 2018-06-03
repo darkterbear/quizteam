@@ -156,7 +156,7 @@ function startGame(roomCode) {
 
   //emit show cards to host
   //console.log(room.currentlyShownCards);
-  room.admin.emit('initialCards', room.currentlyShownCards);
+  setTimeout(room.admin.emit('initialCards', room.currentlyShownCards), 1000);
 }
 
 function getRandomInt(min, max) {
