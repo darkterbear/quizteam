@@ -131,7 +131,7 @@ function startGame(roomCode) {
 
     for (var i = 0; i<config.numberOfCardsPerPlayer;i++) {
       //generate random card, no duplicates
-      var randomIndex = getRandomInt(0, indices.length)
+      var randomIndex = getRandomInt(0, indices.length - 1)
       var randomCard = room.availableCards[indices[randomIndex]];
       usedCardIndices.push(indices.splice(randomIndex, 1)[0]);
       
@@ -147,7 +147,7 @@ function startGame(roomCode) {
   //random shown cards
   for (var i = 0; i < config.numberofShownCards; i++) {
     //generate random card, no duplicates
-    var randomIndex = getRandomInt(0, usedCardIndices.length)
+    var randomIndex = getRandomInt(0, usedCardIndices.length - 1)
     var randomCard = room.availableCards[usedCardIndices[randomIndex]];
     usedCardIndices.splice(randomIndex, 1);
 
