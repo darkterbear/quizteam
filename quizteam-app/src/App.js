@@ -9,9 +9,60 @@ import PlayerScreen from './player-screen/PlayerScreen';
 
 export default class App extends React.Component {
 
+    constructor(props) {
+        super();
+
+        this.state ={
+            step: 0
+        };
+
+        /*
+            0: splash
+            1: create room
+            2: master standby
+            3: master screen
+
+            4: join room
+            5: waiting room
+            6: player screen
+        */
+    }
+
+    setStep(stepNum, updateStateObject) {
+        this.setState(updateStateObject, () => {
+            this.setState({step: stepNum});
+        });
+    }
+
     render() {
+        var renderComponent;
+
+        switch(this.state.step) {
+            case 0:
+                renderComponent = <Splash/>;
+                break;
+            case 1:
+                renderComponent = <CreateRoom/>;
+                break;
+            case 2:
+                renderComponent = <MasterStandby roomCode={this.state.roomCode} numberOfPlayers={this.state.numberOfPlayers} setTitle={this.state.setTitle} />;
+                break;
+            case 3:
+                renderComponent = <CreateRoom />;
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+        }
+
         return (
-            //<Splash/>
+            {a}
             //<CreateRoom/>
             //<JoinRoom/>
             //<WaitingRoom/>
