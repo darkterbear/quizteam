@@ -47,9 +47,9 @@ exports.io = (io) => {
         return room.availableCards[index];
     }
 
-    function updateScore(namespace, score) {
+    function updateScore(room, score) {
         //console.log('update score ' + score);
-        io.to(namespace).emit('updateScore', score);
+        rooms[room].admin.emit('updateScore', score);
     }
 
     function getRandomPlayerCard(room) {
