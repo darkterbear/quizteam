@@ -111,21 +111,18 @@ green {
     --button-raise-level: 4px;
     --button-hover-pressure: 1;
     --transform-speed: .175s;
+
     --button-primary-color: #2F80ED;
     --button-primary-color-dark: rgb(34, 96, 177);
     --button-primary-color-light: #ffffff;
     --button-primary-color-hover: rgb(34, 95, 175);
     --button-primary-border: none;
+
     --button-secondary-color: #27AE60;
     --button-secondary-color-dark: rgb(27, 122, 67);
     --button-secondary-color-light: #ffffff;
     --button-secondary-color-hover: rgb(26, 117, 64);
     --button-secondary-border: none;
-    --button-anchor-color: #ffffff;
-    --button-anchor-color-dark: #ffffff;
-    --button-anchor-color-light: #ffffff;
-    --button-anchor-color-hover: #ffffff;
-    --button-anchor-border: none;
 
 }
 
