@@ -13,8 +13,8 @@ export default class MasterScreen extends Component {
         super(props);
 
         this.state = {
-            cards: this.props.cards
-            //score: score
+            cards: this.props.cards,
+            score: 0
         }
 
         Socket.on('initialCards', function(cards) {
@@ -41,7 +41,7 @@ export default class MasterScreen extends Component {
             this.setState({
                 score: score
             });
-            console.log(score)
+            console.log(score);
         }.bind(this))
     }
 
@@ -49,7 +49,7 @@ export default class MasterScreen extends Component {
         return (
             <div id="root">
                 <div className="container" style={{ paddingTop: '32px' }}>
-                    <h2><green>{this.props.score}</green></h2>
+                    <h2><green>{this.state.score}</green></h2>
                 </div>
 
                 <div className="container" style={{ width: '90%', height: '35%'}}>
