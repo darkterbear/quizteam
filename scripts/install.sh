@@ -7,10 +7,16 @@ sudo apt-get install -y mongodb-org
 sudo systemctl start mongod
 
 sudo apt-get install nodejs-legacy
+
 sudo apt-get install npm
-sudo npm install pm2 -g
+npm config set registry="http://registry.npmjs.org/"
+sudo npm cache clean -f
+
 sudo npm install n -g
 sudo n stable
+
+sudo npm cache clean -f
+sudo npm install pm2 -g
 
 cd quizteam-app
 npm install
