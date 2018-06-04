@@ -11,9 +11,9 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo systemctl start mongod
 
-yes | sudo apt-get install nodejs-legacy
+sudo apt-get install nodejs-legacy
 
-yes | sudo apt-get install npm
+sudo apt-get install npm
 npm config set registry="http://registry.npmjs.org/"
 sudo npm cache clean -f
 
