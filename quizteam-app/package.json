@@ -10,7 +10,7 @@
     "react-awesome-button": "^4.2.1",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
+    "react-scripts": "^1.1.4",
     "react-sound": "^1.2.0",
     "socket.io-client": "^2.1.1"
   },
@@ -18,11 +18,17 @@
     "start": "PORT=3001 pm2 start node_modules/react-scripts/scripts/start.js --name quizteam-web",
     "stop": "pm2 delete quizteam-web",
     "restart": "pm2 restart quizteam-backend",
-    "test": "",
+    "test": "react-scripts test --env=jsdom",
     "run": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "windows": "pm2 start node_modules/react-scripts/scripts/start.js --name quizteam-web"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "webpack": "^1.12.12"
   }
 }
