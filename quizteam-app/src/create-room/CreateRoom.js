@@ -54,7 +54,7 @@ export default class CreateRoom extends Component {
     render() {
         return (
             <div>
-              <AwesomeButton type="primary" style={{ marginTop: '32px'}} action={this.back}><buttontext>go back</buttontext></AwesomeButton>
+              <AwesomeButton type="primary" style={{ marginTop: '32px', marginLeft: '32px' }} action={this.back}><buttontext>go back</buttontext></AwesomeButton>
               <div className="container vcenter">
                   <h2><green>create room</green></h2>
                   <div>
