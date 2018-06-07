@@ -35,6 +35,16 @@ export default class CreateRoom extends Component {
             }
         });
     }
+    
+    back = () => {
+      this.props.setStep(0, {
+        roomCode: null,
+        numberOfPlayers: null,
+        setTitle: null,
+        cards: null,
+        adminSecret: null
+      });
+    }
 
     handleInput = (e) => {
         this.setState({
@@ -48,6 +58,7 @@ export default class CreateRoom extends Component {
                 <div>
                     <input class="green-input" placeholder="quizlet set url..." onChange={this.handleInput} value={this.state.quizleturl}/>
                 </div>
+                <AwesomeButton type="primary" style={{ marginTop: '32px'}} action={this.back}><buttontext>go back</buttontext></AwesomeButton>
                 <AwesomeButton type="secondary" style={{ marginTop: '32px'}} action={this.createRoom}><buttontext>create room</buttontext></AwesomeButton>
             </div>
         );
