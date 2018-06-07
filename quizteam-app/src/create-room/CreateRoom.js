@@ -53,13 +53,15 @@ export default class CreateRoom extends Component {
     }
     render() {
         return (
-            <div className="container vcenter">
-                <h2><green>create room</green></h2>
-                <div>
-                    <input class="green-input" placeholder="quizlet set url..." onChange={this.handleInput} value={this.state.quizleturl}/>
-                </div>
-                <AwesomeButton type="primary" style={{ marginTop: '32px'}} action={this.back}><buttontext>go back</buttontext></AwesomeButton>
-                <AwesomeButton type="secondary" style={{ marginTop: '32px'}} action={this.createRoom}><buttontext>create room</buttontext></AwesomeButton>
+            <div>
+              <AwesomeButton type="primary" style={{ marginTop: '32px'}} action={this.back}><buttontext>go back</buttontext></AwesomeButton>
+              <div className="container vcenter">
+                  <h2><green>create room</green></h2>
+                  <div>
+                      <input class="green-input" placeholder="quizlet set url..." onChange={this.handleInput} value={this.state.quizleturl}/>
+                  </div>
+                  <AwesomeButton type="secondary" style={{ marginTop: '32px'}} action={this.createRoom}><buttontext>create room</buttontext></AwesomeButton>
+              </div>
             </div>
         );
     }
