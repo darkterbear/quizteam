@@ -49,7 +49,7 @@ export default class JoinRoom extends Component {
         return (
             <div>
               <AwesomeButton type="secondary" style={{ marginTop: '32px', marginLeft: '32px' }} action={this.joinRoom}><buttontext>join room</buttontext></AwesomeButton>
-              <div className="container vcenter">
+                <div className="container vcenter">
                   <h2><blue>join room</blue></h2>
                   <div>
                       <input class="blue-input" placeholder="room number" onChange={this.handleChange} value={this.state.roomCode} style={{width: '30%'}}/>
