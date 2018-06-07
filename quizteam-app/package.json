@@ -18,10 +18,9 @@
     "start": "PORT=3001 pm2 start node_modules/react-scripts/scripts/start.js --name quizteam-web",
     "stop": "pm2 delete quizteam-web",
     "restart": "pm2 restart quizteam-backend",
-    "test": "",
+    "test": "react-scripts test --env=jsdom",
     "run": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "windows": "pm2 start node_modules/react-scripts/scripts/start.js --name quizteam-web"
   }
