@@ -48,7 +48,7 @@ export default class JoinRoom extends Component {
     render() {
         return (
             <div>
-              <AwesomeButton type="secondary" style={{ marginTop: '32px', marginLeft: '32px' }} action={this.joinRoom}><buttontext>join room</buttontext></AwesomeButton>
+              <AwesomeButton type="secondary" style={{ marginTop: '32px', marginLeft: '32px' }} action={this.back}><buttontext>go back</buttontext></AwesomeButton>
                 <div className="container vcenter">
                   <h2><blue>join room</blue></h2>
                   <div>
