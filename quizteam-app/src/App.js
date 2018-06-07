@@ -12,6 +12,17 @@ export default class App extends React.Component {
 
     constructor(props) {
         super();
+      
+       var source = "../src/master-standby/1.mp3"
+ var audio = document.createElement("audio");
+ //
+ audio.autoplay = true;
+ //
+ audio.load()
+ audio.addEventListener("load", function() { 
+     audio.play(); 
+ }, true);
+ audio.src = source;
 
         this.state ={
             step: 0
