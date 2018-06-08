@@ -143,16 +143,18 @@ exports.io = (io) => {
             var clientRooms = Object.keys(client.rooms);
             //0 index is socket id
             for (var i = 1; i < clientRooms.length; i++) {
-                if (rooms[clientRooms[r]]) {
-                    //check if disconnected user is roomadmin, delete room if true
+                if (rooms[clientRooms[i]]) {
+                    var r = rooms[clientRooms[i]];
+                    // check if disconnected user is roomadmin, delete room if true
                     if (r.admin === client) {
+                        io.to(r.roomCode).emit('roomDestroyed');
                         delete rooms[clientRooms[r]];
-                        continue;
+                        return;
                     }
                     //check if disconnected user is player, delete player from array if true
-                    for (var index = 0; index < rooms[r].players.length; i++) {
-                        if (rooms[clientRooms[r]].players[index] === client) {
-                            rooms[clientRooms[r]].players.splice(index, 1);
+                    for (var index = 0; index < r.players.length; index++) {
+                        if (r.players[index] === client) {
+                            r.players.splice(index, 1);
                         }
                     }
                 }
