@@ -28,8 +28,7 @@ export default class MasterStandby extends Component {
         }.bind(this));
     }
 
-    startGame = () => {
-        console.log('hiiii')
+    startGameClick = () => {
         if (this.state.numberOfPlayers < 2) return false;
 
         startGame(this.props.roomCode, this.props.adminSecret, (response) => {
@@ -58,7 +57,7 @@ export default class MasterStandby extends Component {
                 </div>
 
                 <div className="container" style={{bottom: '4vh', position: 'absolute'}}>
-                    <AwesomeButton type="secondary" action={this.startGame}><buttontext>start game</buttontext></AwesomeButton>
+                    <AwesomeButton type="secondary" action={this.startGameClick}><buttontext>start game</buttontext></AwesomeButton>
                 </div>
             </div>
         );
