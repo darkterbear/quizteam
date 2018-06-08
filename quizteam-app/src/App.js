@@ -28,6 +28,15 @@ export default class App extends React.Component {
         */
 
         this.setStep = this.setStep.bind(this);
+      Sockets.on('roomDestroyed', () => {
+        this.setStep(0, {
+          roomCode: null,
+          numberOfPlayers: null,
+          setTitle: null,
+          cards: null,
+          adminSecret: null
+        });
+      });
     }
 
     setStep(stepNum, updateStateObject) {

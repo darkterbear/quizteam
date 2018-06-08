@@ -139,7 +139,7 @@ exports.io = (io) => {
 
         // called by the player leaving the room
         //TODO: check if left user had cards
-        client.on('disconnect', () => {
+        client.on('leaveRoom', () => {
             var clientRooms = Object.keys(client.rooms);
             //0 index is socket id
             for (var i = 1; i < clientRooms.length; i++) {
