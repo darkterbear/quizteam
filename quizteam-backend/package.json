@@ -7,7 +7,6 @@
         "start": "pm2 start server.js --name quizteam-backend",
         "stop": "pm2 delete quizteam-backend",
         "restart": "pm2 restart quizteam-backend",
-        "test": ""
     },
     "author": "Terrance Li, Andrew Liu, and Neal Ma",
     "license": "MIT",
