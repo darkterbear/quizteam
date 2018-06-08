@@ -37,13 +37,10 @@ var startGame = function(roomCode, adminSecret, callback) {
         roomCode: roomCode,
         adminSecret: adminSecret
     });
-    console.log('startgame called')
 
     axios.post(url, data).then((resp) => {
-        console.log(resp)
         callback(resp.data);
     }).catch((err) => {
-        console.log(err)
         callback({
             resp_code: 1
         });
