@@ -141,11 +141,14 @@ exports.io = (io) => {
         //TODO: check if left user had cards
         client.on('leaveRoom', () => {
             console.log('leaveroom received');
-            var clientRooms = Object.keys(client.rooms);
+            var clientRooms = Object.keys(rooms);
+            console.log('current rooms: ' + clientRooms);
+          
             //0 index is socket id
-            for (var i = 1; i < clientRooms.length; i++) {
-                if (rooms[clientRooms[i]]) {
+            for (var i = 0; i < clientRooms.length; i++) {
+                if (rooms[clientRooms[i]] != null) {
                     var r = rooms[clientRooms[i]];
+                    console.log('checking room ' + r.roomCode);
                     // check if disconnected user is roomadmin, delete room if true
                     if (r.admin === client) {
                         console.log('leaving client is admin of room ' + r.roomCode);
@@ -156,6 +159,7 @@ exports.io = (io) => {
                     }
                   
                     //check if disconnected user is player, delete player from array if true
+                    console.log('checking players of room ' + r.roomCode);
                     for (var index = 0; index < r.players.length; index++) {
                         if (r.players[index] === client) {
                             console.log('leaving client is member of room ' + r.roomCode);
@@ -163,6 +167,7 @@ exports.io = (io) => {
                             client.leave(r.roomCode);
                             rooms[room].admin.emit('updateNumberOfPlayers', rooms[room].players.length);
                             console.log('update player count signal sent to admin of ' + r.roomCode);
+                            return;
                         }
                     }
                 }
