@@ -151,10 +151,13 @@ exports.io = (io) => {
                         delete rooms[clientRooms[r]];
                         return;
                     }
+                  
                     //check if disconnected user is player, delete player from array if true
                     for (var index = 0; index < r.players.length; index++) {
                         if (r.players[index] === client) {
                             r.players.splice(index, 1);
+                            client.leave(r.roomCode);
+                            rooms[room].admin.emit('updateNumberOfPlayers', rooms[room].players.length);
                         }
                     }
                 }
