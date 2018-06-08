@@ -26,10 +26,14 @@ export default class MasterStandby extends Component {
         Socket.on('startGame', function () {
             this.props.setStep(3, {});
         }.bind(this));
+
+        this.startGameClick = this.startGameClick.bind(this)
     }
 
-    startGameClick = () => {
-        if (this.state.numberOfPlayers < 2) return false;
+    startGameClick() {
+        if (this.state.numberOfPlayers < 2) {
+            return false;
+        }
 
         startGame(this.props.roomCode, this.props.adminSecret, (response) => {
             if (response.resp_code == 100) {
