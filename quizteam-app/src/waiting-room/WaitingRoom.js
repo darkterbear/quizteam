@@ -44,6 +44,7 @@ export default class WaitingRoom extends Component {
   
     back = () => {
       Socket.emit('leaveRoom');
+      console.log('leaveRoom emitted');
       this.props.setStep(0, {
         roomCode: null,
         numberOfPlayers: null,

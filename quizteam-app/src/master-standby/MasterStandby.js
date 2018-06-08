@@ -18,9 +18,10 @@ export default class MasterStandby extends Component {
         }
 
         Socket.on('updateNumberOfPlayers', function(players) {
+            console.log('update player count signal received: ' + players + ' players');
             this.setState({
                 numberOfPlayers: players
-            })
+            });
         }.bind(this));
 
         Socket.on('startGame', function () {
