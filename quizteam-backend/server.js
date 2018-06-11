@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://138.197.207.244");
+    res.header("Access-Control-Allow-Origin", "http://quizteam.dsys32.com");
     res.header("Access-Control-Allow-Credentials", "true");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
