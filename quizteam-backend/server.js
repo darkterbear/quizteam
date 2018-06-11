@@ -7,6 +7,7 @@ const sockets = require('./sockets.js');
 const app = express();
 const cors = require('cors');
 const port = 3000;
+import path from 'path';
 
 // Connect MongoDB with Mongoose
 
