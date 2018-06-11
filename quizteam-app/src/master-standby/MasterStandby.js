@@ -32,7 +32,7 @@ export default class MasterStandby extends Component {
     }
 
     startGameClick() {
-        if (this.state.numberOfPlayers < 2) {
+        if (this.state.numberOfPlayers < 3) {
             return false;
         }
 

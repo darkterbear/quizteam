@@ -51,7 +51,7 @@ export default class MasterScreen extends Component {
     render() {
         return (
             <div id="root">
-                <div className="container" style={{ width: '90%', height: '20%', marginTop: '5%'}}>
+                <div className="container" style={{ width: '90%', height: '20%'}}>
                     <h2><green>score: {this.state.score}</green></h2>
                 </div>
 
