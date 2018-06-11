@@ -51,7 +51,7 @@ export default class MasterStandby extends Component {
         return (
             <div id="root">
                 <Sound
-                  url="http://www.hochmuth.com/mp3/Haydn_Adagio.mp3"
+                  url="http://www.hochmuth.com/mp3/Boccherini_Concerto_478-1.mp3"
                   playStatus={Sound.status.PLAYING}
                   playFromPosition={300 /* in milliseconds */}
                   onPlaying={this.handleSongPlaying}
