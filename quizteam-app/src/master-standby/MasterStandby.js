@@ -7,7 +7,7 @@ import {
 import 'react-awesome-button/dist/styles.css';
 import Socket from '../sockets';
 import { startGame } from '../api';
-var Sound = require('react-sound').default;
+import Sound from 'react-sound';
 
 export default class MasterStandby extends Component {
     constructor(props) {
@@ -30,6 +30,10 @@ export default class MasterStandby extends Component {
 
         this.startGameClick = this.startGameClick.bind(this);
     }
+  
+    handleSongPlaying = (position, duration) => {
+      console.log('SONG IS PLAYING');
+    }
 
     startGameClick() {
         if (this.state.numberOfPlayers < 3) {
@@ -46,10 +50,12 @@ export default class MasterStandby extends Component {
     render() {
         return (
             <div id="root">
-                <audio controls preload="auto">
-                    <source src="1.mp3" type="audio/mpeg" />
-                    This text displays if the audio tag isn't supported.
-                </audio>
+                <Sound
+                  url="http://www.hochmuth.com/mp3/Haydn_Adagio.mp3"
+                  playStatus={Sound.status.PLAYING}
+                  playFromPosition={300 /* in milliseconds */}
+                  onPlaying={this.handleSongPlaying}
+                />
 
                 <div className="container" style={{paddingTop: '32px'}}>
                     <h2><green>{this.props.roomCode}</green></h2>
