@@ -28,7 +28,7 @@ export default class MasterStandby extends Component {
             this.props.setStep(3, {});
         }.bind(this));
 
-        this.startGameClick = this.startGameClick.bind(this)
+        this.startGameClick = this.startGameClick.bind(this);
     }
 
     startGameClick() {
