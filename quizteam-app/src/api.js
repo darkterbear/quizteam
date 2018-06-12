@@ -25,7 +25,8 @@ var createRoom = function(quizletUrl, callback) {
         callback(resp.data);
     }).catch((err) => {
         callback({
-            resp_code: 1
+            resp_code: -1,
+            err: err
         })
     });   
 }
