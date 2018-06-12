@@ -88,8 +88,9 @@ export default class App extends React.Component {
                 <Sound
                   url="http://quizteam.dsys32.com:3000/static/1.mp3"
                   playStatus={this.isMusicPlaying()}
-                  playFromPosition={300 /* in milliseconds */}
+                  playFromPosition={0 /* in milliseconds */}
                   onPlaying={this.handleSongPlaying}
+                  loop={true}
                 />
                 {renderComponent}
             </div>
