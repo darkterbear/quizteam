@@ -22,7 +22,9 @@ export default class CreateRoom extends Component {
     }
 
     createRoom = () => {
+        console.log('createroom pressed');
         createRoom(this.state.quizleturl, (response) => {
+            console.log('response logged: ' + response);
             if (response.resp_code == 100) {
                 this.props.setStep(2, {
                     roomCode: response.room_code,
