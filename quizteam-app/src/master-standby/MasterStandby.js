@@ -50,13 +50,6 @@ export default class MasterStandby extends Component {
     render() {
         return (
             <div id="root">
-                <Sound
-                  url="http://www.hochmuth.com/mp3/Boccherini_Concerto_478-1.mp3"
-                  playStatus={Sound.status.PLAYING}
-                  playFromPosition={300 /* in milliseconds */}
-                  onPlaying={this.handleSongPlaying}
-                />
-
                 <div className="container" style={{paddingTop: '32px'}}>
                     <h2><green>{this.props.roomCode}</green></h2>
                 </div>

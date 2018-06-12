@@ -76,6 +76,19 @@ export default class App extends React.Component {
                 break;
         }
 
-        return (renderComponent);
+        return (
+            /*
+                <Sound
+                  url="http://quizteam.dsys32.com:3000/static/1.mp3"
+                  playStatus={Sound.status.PLAYING}
+                  playFromPosition={300}
+                  onPlaying={this.handleSongPlaying}
+                />
+            */
+            
+            <div>
+                renderComponent
+            </div>
+        );
     }
 }
