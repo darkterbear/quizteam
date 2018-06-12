@@ -7,6 +7,7 @@ import MasterStandby from './master-standby/MasterStandby';
 import MasterScreen from './master-screen/MasterScreen';
 import PlayerScreen from './player-screen/PlayerScreen';
 import Sockets from './sockets';
+import Sound from 'react-sound';
 
 export default class App extends React.Component {
 
@@ -49,6 +50,12 @@ export default class App extends React.Component {
         return this.state.roomCode
     }
 
+    isMusicPlaying = () => {
+        if (this.state.step == 2 || this.state.step == 3) {
+            return Sound.status.PLAYING;
+        } else return Sound.status.STOPPED;
+    }
+
     render() {
         var renderComponent;
 
@@ -77,16 +84,13 @@ export default class App extends React.Component {
         }
 
         return (
-            /*
+            <div>
                 <Sound
                   url="http://quizteam.dsys32.com:3000/static/1.mp3"
-                  playStatus={Sound.status.PLAYING}
-                  playFromPosition={300}
+                  playStatus={this.isMusicPlaying()}
+                  playFromPosition={300 /* in milliseconds */}
                   onPlaying={this.handleSongPlaying}
                 />
-            */
-            
-            <div>
                 {renderComponent}
             </div>
         );
