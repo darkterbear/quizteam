@@ -89,7 +89,6 @@ export default class App extends React.Component {
                   url="http://quizteam.dsys32.com:3000/static/1.mp3"
                   playStatus={this.isMusicPlaying()}
                   playFromPosition={0 /* in milliseconds */}
-                  onPlaying={this.handleSongPlaying}
                   loop={true}
                 />
                 {renderComponent}
