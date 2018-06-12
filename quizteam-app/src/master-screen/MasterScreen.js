@@ -39,27 +39,28 @@ export default class MasterScreen extends Component {
             })
         }.bind(this));
 
-        Socket.on('updateScore', function(score) {
+        Socket.on('updateScore', function(newScore) {
+            console.log('new score received ' + newScore);
             this.setState({
-                score: score
+                score: newScore
             });
-            console.log(score);
+            
         }.bind(this))
     }
 
     render() {
         return (
             <div id="root">
-                <div className="container" style={{ width: '90%', height: '30%'}}>
+                <div className="container" style={{ width: '90%', height: '20%'}}>
                     <h2><green>score: {this.state.score}</green></h2>
                 </div>
 
-                <div className="container" style={{ width: '90%', height: '35%'}}>
+                <div className="container" style={{ width: '90%', height: '30%'}}>
                     <Card text={this.state.cards[0] != null && this.state.cards[0].definition}/>
                     <Card text={this.state.cards[1] != null && this.state.cards[1].definition}/>
                 </div>
 
-                <div className="container" style={{ width: '90%', height: '35%', marginTop: '32px' }}>
+                <div className="container" style={{ width: '90%', height: '30%', marginTop: '5%', marginBottom: '5%' }}>
                     <Card text={this.state.cards[2] != null && this.state.cards[2].definition}/>
                     <Card text={this.state.cards[3] != null && this.state.cards[3].definition}/>
                 </div>

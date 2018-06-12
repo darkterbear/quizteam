@@ -7,12 +7,12 @@ import MasterStandby from './master-standby/MasterStandby';
 import MasterScreen from './master-screen/MasterScreen';
 import PlayerScreen from './player-screen/PlayerScreen';
 import Sockets from './sockets';
+import Sound from 'react-sound';
 
 export default class App extends React.Component {
 
     constructor(props) {
         super();
-
         this.state ={
             step: 0
         };
@@ -29,6 +29,15 @@ export default class App extends React.Component {
         */
 
         this.setStep = this.setStep.bind(this);
+      Sockets.on('roomDestroyed', () => {
+        this.setStep(0, {
+          roomCode: null,
+          numberOfPlayers: null,
+          setTitle: null,
+          cards: null,
+          adminSecret: null
+        });
+      });
     }
 
     setStep(stepNum, updateStateObject) {
@@ -39,6 +48,12 @@ export default class App extends React.Component {
 
     getRoomCode = () => {
         return this.state.roomCode
+    }
+
+    isMusicPlaying = () => {
+        if (this.state.step == 2 || this.state.step == 3) {
+            return Sound.status.PLAYING;
+        } else return Sound.status.STOPPED;
     }
 
     render() {
@@ -68,6 +83,16 @@ export default class App extends React.Component {
                 break;
         }
 
-        return (renderComponent);
+        return (
+            <div style={{height: '100%', width: '100%'}}>
+                <Sound
+                  url="http://quizteam.dsys32.com:3000/static/1.mp3"
+                  playStatus={this.isMusicPlaying()}
+                  playFromPosition={0 /* in milliseconds */}
+                  loop={true}
+                />
+                {renderComponent}
+            </div>
+        );
     }
 }

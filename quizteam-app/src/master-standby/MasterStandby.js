@@ -7,7 +7,6 @@ import {
 import 'react-awesome-button/dist/styles.css';
 import Socket from '../sockets';
 import { startGame } from '../api';
-var Sound = require('react-sound').default;
 
 export default class MasterStandby extends Component {
     constructor(props) {
@@ -18,18 +17,27 @@ export default class MasterStandby extends Component {
         }
 
         Socket.on('updateNumberOfPlayers', function(players) {
+            console.log('update player count signal received: ' + players + ' players');
             this.setState({
                 numberOfPlayers: players
-            })
+            });
         }.bind(this));
 
         Socket.on('startGame', function () {
             this.props.setStep(3, {});
         }.bind(this));
+
+        this.startGameClick = this.startGameClick.bind(this);
+    }
+  
+    handleSongPlaying = (position, duration) => {
+      console.log('SONG IS PLAYING');
     }
 
-    startGame = () => {
-        if (this.state.numberOfPlayers < 2) return false;
+    startGameClick() {
+        if (this.state.numberOfPlayers < 3) {
+            return false;
+        }
 
         startGame(this.props.roomCode, this.props.adminSecret, (response) => {
             if (response.resp_code == 100) {
@@ -41,11 +49,6 @@ export default class MasterStandby extends Component {
     render() {
         return (
             <div id="root">
-                <audio controls preload="auto">
-                    <source src="1.mp3" type="audio/mpeg" />
-                    This text displays if the audio tag isn't supported.
-                </audio>
-
                 <div className="container" style={{paddingTop: '32px'}}>
                     <h2><green>{this.props.roomCode}</green></h2>
                 </div>
@@ -57,7 +60,7 @@ export default class MasterStandby extends Component {
                 </div>
 
                 <div className="container" style={{bottom: '4vh', position: 'absolute'}}>
-                    <AwesomeButton type="secondary" action={this.startGame}><buttontext>start game</buttontext></AwesomeButton>
+                    <AwesomeButton type="secondary" action={this.startGameClick}><buttontext>start game</buttontext></AwesomeButton>
                 </div>
             </div>
         );

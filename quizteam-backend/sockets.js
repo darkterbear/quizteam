@@ -47,8 +47,9 @@ exports.io = (io) => {
         return room.availableCards[index];
     }
 
-    function updateScore(namespace, score) {
-        io.to(namespace).emit('updateScore', score);
+    function updateScore(room, score) {
+        //console.log('update score ' + score);
+        rooms[room].admin.emit('updateScore', score);
     }
 
     function getRandomPlayerCard(room) {
@@ -109,6 +110,7 @@ exports.io = (io) => {
          */
         client.on('submitAction', (room, action) => {
             for (var index4 = 0; index4 < rooms[room].currentlyShownCards.length; index4++) {
+                //console.log(action + " " + rooms[room].currentlyShownCards[index4].index);
                 if (rooms[room].currentlyShownCards[index4].index == action) {
                     rooms[room].score += 10
                     updateScore(room, rooms[room].score)
@@ -137,20 +139,35 @@ exports.io = (io) => {
 
         // called by the player leaving the room
         //TODO: check if left user had cards
-        client.on('disconnect', () => {
-            var clientRooms = Object.keys(client.rooms);
+        client.on('leaveRoom', () => {
+            console.log('leaveroom received');
+            var clientRooms = Object.keys(rooms);
+            console.log('current rooms: ' + clientRooms);
+          
             //0 index is socket id
-            for (var i = 1; i < clientRooms.length; i++) {
-                if (rooms[clientRooms[r]]) {
-                    //check if disconnected user is roomadmin, delete room if true
+            for (var i = 0; i < clientRooms.length; i++) {
+                if (rooms[clientRooms[i]] != null) {
+                    var r = rooms[clientRooms[i]];
+                    console.log('checking room ' + r.roomCode);
+                    // check if disconnected user is roomadmin, delete room if true
                     if (r.admin === client) {
+                        console.log('leaving client is admin of room ' + r.roomCode);
+                        io.to(r.roomCode).emit('roomDestroyed');
+                        console.log('roomdestroy signal sent to room ' + r.roomCode);
                         delete rooms[clientRooms[r]];
-                        continue;
+                        return;
                     }
+                  
                     //check if disconnected user is player, delete player from array if true
-                    for (var index = 0; index < rooms[r].players.length; i++) {
-                        if (rooms[clientRooms[r]].players[index] === client) {
-                            rooms[clientRooms[r]].players.splice(index, 1);
+                    console.log('checking players of room ' + r.roomCode);
+                    for (var index = 0; index < r.players.length; index++) {
+                        if (r.players[index] === client) {
+                            console.log('leaving client is member of room ' + r.roomCode);
+                            r.players.splice(index, 1);
+                            client.leave(r.roomCode);
+                            rooms[room].admin.emit('updateNumberOfPlayers', rooms[room].players.length);
+                            console.log('update player count signal sent to admin of ' + r.roomCode);
+                            return;
                         }
                     }
                 }

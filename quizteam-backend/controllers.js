@@ -80,6 +80,7 @@ exports.destroyRoom = (req, res) => {
     adminSecret: req.body.adminSecret,
     roomCode: req.body.roomCode
   }, (removedRoom) => {
+    req.io.to(removedRoom.roomCode).emit('roomDestroyed');
     res.json({
       resp_code: 100
     });

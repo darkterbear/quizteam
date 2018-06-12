@@ -28,6 +28,16 @@ export default class JoinRoom extends Component {
     joinRoom = () => {
         Socket.emit('setRoom', this.state.roomCode)
     }
+    
+    back = () => {
+      this.props.setStep(0, {
+        roomCode: null,
+        numberOfPlayers: null,
+        setTitle: null,
+        cards: null,
+        adminSecret: null
+      });
+    }
 
     handleChange = (e) => {
         this.setState({
@@ -37,12 +47,15 @@ export default class JoinRoom extends Component {
 
     render() {
         return (
-            <div className="container vcenter">
-                <h2><blue>join room</blue></h2>
-                <div>
-                    <input class="blue-input" placeholder="room number" onChange={this.handleChange} value={this.state.roomCode} style={{width: '30%'}}/>
-                </div>
-                <AwesomeButton type="primary" style={{ marginTop: '32px' }} action={this.joinRoom}><buttontext>join room</buttontext></AwesomeButton>
+            <div>
+              <AwesomeButton type="secondary" style={{ marginTop: '32px', marginLeft: '32px' }} action={this.back}><buttontext>go back</buttontext></AwesomeButton>
+                <div className="container vcenter">
+                  <h2><blue>join room</blue></h2>
+                  <div>
+                      <input class="blue-input" placeholder="room number" onChange={this.handleChange} value={this.state.roomCode} style={{width: '30%'}}/>
+                  </div>
+                  <AwesomeButton type="primary" style={{ marginTop: '32px' }} action={this.joinRoom}><buttontext>join room</buttontext></AwesomeButton>
+              </div>
             </div>
         );
     }
