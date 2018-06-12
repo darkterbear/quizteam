@@ -84,7 +84,7 @@ export default class App extends React.Component {
         }
 
         return (
-            <div>
+            <div style={{height: '100%', width: '100%'}}>
                 <Sound
                   url="http://quizteam.dsys32.com:3000/static/1.mp3"
                   playStatus={this.isMusicPlaying()}
