@@ -86,8 +86,8 @@ export default class App extends React.Component {
                 />
             */
             
-            <div>
-                renderComponent
+            <div style>
+                {renderComponent}
             </div>
         );
     }
